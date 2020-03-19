@@ -130,21 +130,9 @@
                     </div>
                 </div>
                 <div class="col-md-4 mr-auto">
-                    <div class="card card-signup">
+                    <div class="card card-signup" >
                         <div class="card-body">
                             <h4 class="card-title text-center">Register</h4>
-                            {{--<div class="social text-center">--}}
-                                {{--<button class="btn btn-icon btn-round btn-twitter">--}}
-                                    {{--<i class="fab fa-twitter"></i>--}}
-                                {{--</button>--}}
-                                {{--<button class="btn btn-icon btn-round btn-dribbble">--}}
-                                    {{--<i class="fab fa-dribbble"></i>--}}
-                                {{--</button>--}}
-                                {{--<button class="btn btn-icon btn-round btn-facebook">--}}
-                                    {{--<i class="fab fa-facebook"> </i>--}}
-                                {{--</button>--}}
-                                {{--<h5 class="card-description"> or be classical </h5>--}}
-                            {{--</div>--}}
                             <form class="form" method="POST" action="{{route('register')}}">
                                 @csrf
                                 <div class="input-group">

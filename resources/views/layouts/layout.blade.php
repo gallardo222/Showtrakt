@@ -11,22 +11,23 @@
 <!-- End Google Tag Manager (noscript) -->
 @include('partials.nav')
 <div class="wrapper">
-    <div class="page-header page-header-small">
-        <div class="page-header-image" data-parallax="true" style="background-image: url('/assets/img/bg26.jpg');">
+    <div class="page-header page-header-medium">
+        <div class="page-header-image" data-parallax="true" style="background-image: url('/assets/img/mandalorian.jpg');">
         </div>
         <div class="content-center">
             <div class="container">
                 <h1 class="title">Showtrakt</h1>
                 <div class="text-center">
-                    <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                        <i class="fab fa-facebook-square"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                        <i class="fab fa-google-plus"></i>
-                    </a>
+                    {{--<a href="#pablo" class="btn btn-primary btn-icon btn-round">--}}
+                        {{--<i class="fab fa-facebook-square"></i>--}}
+                    {{--</a>--}}
+                    {{--<a href="#pablo" class="btn btn-primary btn-icon btn-round">--}}
+                        {{--<i class="fab fa-twitter"></i>--}}
+                    {{--</a>--}}
+                    {{--<a href="#pablo" class="btn btn-primary btn-icon btn-round">--}}
+                        {{--<i class="fab fa-google-plus"></i>--}}
+                    {{--</a>--}}
+                    <img src="/assets/img/showtrakt-logo-sm.png" alt="">
                 </div>
             </div>
         </div>
@@ -34,35 +35,27 @@
 
     @yield('content')
 
-    <footer class="footer footer-default">
+    <footer class="footer" data-background-color="black">
         <div class="container">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="https://www.creative-tim.com">
-                            Creative Tim
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://presentation.creative-tim.com">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://blog.creative-tim.com">
-                            Blog
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="copyright" id="copyright">
-                &copy;
-                <script>
-                    document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-                </script>, Designed by
-                <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-            </div>
+            <a class="footer-brand" href="#pablo">Showtrakt</a>
+            <p class="pull-center small">This product uses the TMDb API but is not endorsed or certified by TMDb</p>
+            <ul class="social-buttons pull-right">
+                <li>
+                    <a href="https://twitter.com/CreativeTim" target="_blank" class="btn btn-icon btn-link btn-neutral">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/CreativeTim" target="_blank" class="btn btn-icon btn-neutral btn-link">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/CreativeTimOfficial" target="_blank" class="btn btn-icon btn-neutral btn-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
     </footer>
 </div>
