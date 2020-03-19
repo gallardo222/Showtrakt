@@ -85,13 +85,14 @@
 
 @include('partials.nav')
 
-<div class="page-header header-filter" filter-color="orange">
-    <div class="page-header-image" style="background-image:url('/assets/img/login.jpg')"></div>
+<div class="page-header header-filter" filter-color="black">
+    <div class="page-header-image" style="background-image:url('/assets/img/game.jpg')"></div>
     <div class="content">
         <div class="container">
             <div class="col-md-5 ml-auto mr-auto">
                 <div class="card card-login card-plain">
-                    <form class="form" method="" action="">
+                    <form class="form" method="POST" action="{{ route('login') }}">
+                        @csrf
                         <div class="card-header text-center">
                             <div class="logo-container">
                                 <img src="/assets/img/now-logo.png" alt="">
@@ -102,20 +103,35 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
+
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="input-group no-border input-lg">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="now-ui-icons objects_key-25"></i></span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="Password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password">
+
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Log in</a>
+                            <button type="submit" class="btn btn-primary btn-round btn-lg btn-block">
+                                {{ __('Login') }}
+                            </button>
                         </div>
                         <div class="pull-left">
                             <h6>
+
                                 <a href="#pablo" class="link footer-link">Create Account</a>
                             </h6>
                         </div>

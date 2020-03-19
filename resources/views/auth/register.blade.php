@@ -90,7 +90,7 @@
 @include('partials.nav')
 
 <div class="page-header header-filter" filter-color="black">
-    <div class="page-header-image" style="background-image:url(../assets/img/bg18.jpg)"></div>
+    <div class="page-header-image" style="background-image:url(../assets/img/starwars.jpg)"></div>
     <div class="content">
         <div class="container">
             <div class="row">
@@ -145,24 +145,49 @@
                                 {{--</button>--}}
                                 {{--<h5 class="card-description"> or be classical </h5>--}}
                             {{--</div>--}}
-                            <form class="form" method="" action="">
+                            <form class="form" method="POST" action="{{route('register')}}">
+                                @csrf
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="User Name..." >
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" placeholder="Name">
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="input-group @error('password') is-invalid @enderror ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="now-ui-icons objects_key-25"></i></span>
+                                    </div>
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
+
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="now-ui-icons objects_key-25"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Password...">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
+
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Your Email..." autocomplete="email">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
+
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 {{--<!-- If you want to add a checkbox to this form, uncomment this code -->--}}
                                 {{--<div class="form-check">--}}
@@ -174,7 +199,9 @@
                                     {{--</label>--}}
                                 {{--</div>--}}
                                 <div class="card-footer text-center">
-                                    <a href="#pablo" class="btn btn-primary btn-round btn-lg">Sign In</a>
+                                    <button type="submit" class="btn btn-primary btn-round btn-lg">
+                                        {{ __('Register') }}
+                                    </button>
                                 </div>
                             </form>
                         </div>
