@@ -97,34 +97,34 @@
                 <div class="col-md-4 ml-auto mr-auto">
                     <div class="info info-horizontal">
                         <div class="icon icon-primary">
-                            <i class="now-ui-icons media-2_sound-wave"></i>
+                            <i class="now-ui-icons business_chart-pie-36"></i>
                         </div>
                         <div class="description">
-                            <h5 class="info-title">Marketing</h5>
+                            <h5 class="info-title">Stats</h5>
                             <p class="description">
-                                We've created the marketing campaign of the website. It was a very interesting collaboration.
+                                We collect data to better understand our users.
                             </p>
                         </div>
                     </div>
                     <div class="info info-horizontal">
                         <div class="icon icon-primary">
-                            <i class="now-ui-icons media-1_button-pause"></i>
+                            <i class="now-ui-icons design_palette"></i>
                         </div>
                         <div class="description">
-                            <h5 class="info-title">Fully Coded in HTML5</h5>
+                            <h5 class="info-title">Beautifuly Design</h5>
                             <p class="description">
-                                We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
+                                Our designer work steadily to improve the user experience.
                             </p>
                         </div>
                     </div>
                     <div class="info info-horizontal">
                         <div class="icon icon-info">
-                            <i class="now-ui-icons users_single-02"></i>
+                            <i class="now-ui-icons emoticons_satisfied"></i>
                         </div>
                         <div class="description">
-                            <h5 class="info-title">Built Audience</h5>
+                            <h5 class="info-title">User Experience</h5>
                             <p class="description">
-                                There is also a Fully Customizable CMS Admin Dashboard for this product.
+                                Our top priority is to fully understand how users consume our app and improve it.
                             </p>
                         </div>
                     </div>
@@ -203,17 +203,17 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="https://www.creative-tim.com">
-                            Creative Tim
+                        <a href="/">
+                            Showtrakt
                         </a>
                     </li>
                     <li>
-                        <a href="http://presentation.creative-tim.com">
+                        <a href="/">
                             About Us
                         </a>
                     </li>
                     <li>
-                        <a href="http://blog.creative-tim.com">
+                        <a href="/">
                             Blog
                         </a>
                     </li>
@@ -223,9 +223,7 @@
                 &copy;
                 <script>
                     document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-                </script>, Designed by
-                <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+                </script>
             </div>
         </div>
     </footer>

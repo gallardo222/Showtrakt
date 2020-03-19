@@ -10,7 +10,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{{'login'}}">
                         Log In
                     </a>
