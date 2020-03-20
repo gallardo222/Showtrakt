@@ -3,14 +3,14 @@
 
 @include('partials.head')
 
-<body class="landing-page">
+<body class="landing-page bg-dark">
 <!-- Google Tag Manager (noscript) -->
 <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
 @include('partials.nav')
-<div class="wrapper">
+<div class="wrapper ">
     <div class="page-header page-header-medium">
         <div class="page-header-image" data-parallax="true" style="background-image: url('/assets/img/mandalorian.jpg');">
         </div>
@@ -32,6 +32,7 @@
             </div>
         </div>
     </div>
+</div>
 
     @yield('content')
 
@@ -58,7 +59,6 @@
             </ul>
         </div>
     </footer>
-</div>
 
 <!--   Core JS Files   -->
 <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>

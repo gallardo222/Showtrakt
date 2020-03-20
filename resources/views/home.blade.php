@@ -17,6 +17,16 @@
                     You are logged in!
                 </div>
             </div>
+            @foreach($movies as $movie)
+
+                <ul>
+                    @if($movie['media_type'] == 'movie')
+                    <li>{{$movie['title']}}</li>
+                        @endif
+                </ul>
+
+            @endforeach
+
         </div>
     </div>
 </div>

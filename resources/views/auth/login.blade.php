@@ -95,8 +95,9 @@
                         @csrf
                         <div class="card-header text-center">
                             <div class="logo-container">
-                                <img src="/assets/img/now-logo.png" alt="">
+                                <img src="/assets/img/showtrakt-logo-sm.png" alt="">
                             </div>
+                            Showtrakt
                         </div>
                         <div class="card-body">
                             <div class="input-group no-border input-lg">

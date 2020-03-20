@@ -31,4 +31,10 @@ class HomeController extends Controller
         //dd($popular);
         return view('home')->with('movies', $popular);
     }
+    public function dashboard()
+    {
+        $popular=$this->tmdb->trending();
+        //dd($popular);
+        return view('welcome')->with('movies', $popular);
+    }
 }
