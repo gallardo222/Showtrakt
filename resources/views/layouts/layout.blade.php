@@ -11,10 +11,11 @@
 <!-- End Google Tag Manager (noscript) -->
 @include('partials.nav')
 <div class="wrapper ">
-    <div class="page-header page-header-medium">
+    <div class="page-header @if(url()->current() == "http://showtrakt.local") page-header-medium @else page-header-small @endif">
         <div class="page-header-image" data-parallax="true" style="background-image: url('/assets/img/mandalorian.jpg');">
         </div>
         <div class="content-center">
+            @if(url()->current() == "http://showtrakt.local")
             <div class="container">
                 <h1 class="title">Showtrakt</h1>
                 <div class="text-center">
@@ -30,6 +31,7 @@
                     <img src="/assets/img/showtrakt-logo-sm.png" alt="">
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </div>
