@@ -1,19 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\TMDB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    private $tmdb;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(TMDB $tmdb)
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
+        $this->tmdb = $tmdb;
+
     }
 
     /**
@@ -23,6 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $popular=$this->tmdb->trending();
+        //dd($popular);
+        return view('home')->with('movies', $popular);
     }
 }
