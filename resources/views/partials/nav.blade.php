@@ -22,7 +22,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#pablo">
-                        Administración
+                        Admin
                     </a>
                 </li>
             </ul>

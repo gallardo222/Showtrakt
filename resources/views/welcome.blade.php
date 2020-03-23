@@ -12,7 +12,7 @@
                         <div class="col-lg-3 col-md-6" >
                         <div class="card card-product card-plain">
                             <div class="card-image">
-                                <a href="#">
+                                <a href="/item/{{$movie['tmdb_id']}}/{{$movie['media_type']}}">
                                     <img src="https://image.tmdb.org/t/p/w500{{$movie['poster']}}" alt="poster" >
                                 </a>
                             </div>

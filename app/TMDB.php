@@ -132,7 +132,7 @@ class TMDB
             'media_type' => $mediaType,
             //'released' => $release->copy()->getTimestamp(),
             //'released_timestamp' => $release,
-            'genre_ids' => $data->genre_ids,
+            //'genre_ids' => $data->genre_ids,
             //'genre' => Genre::whereIn('id', $data->genre_ids)->get(),
             'episodes' => [],
             'overview' => $data->overview,
@@ -158,6 +158,20 @@ class TMDB
     private function untilEndOfDay()
     {
         return now()->secondsUntilEndOfDay();
+    }
+
+    public function details($tmdbId, $mediaType)
+    {
+        $response = $this->requestTmdb($this->base . '/3/' . $mediaType . '/' . $tmdbId, [
+            'append_to_response' => 'videos,external_ids',
+        ]);
+
+        if($response->getStatusCode() != Response::HTTP_OK) {
+            // ignore any error
+            return json_decode('{}');
+        }
+
+        return json_decode($response->getBody());
     }
 
 

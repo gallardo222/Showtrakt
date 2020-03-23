@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@dashboard');
 
+Route::get('/item/{tmdbId}/{mediaType}', 'ItemController@item');
+
