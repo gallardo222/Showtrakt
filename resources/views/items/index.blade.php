@@ -13,7 +13,7 @@
                                 <div class="card card-product card-plain">
                                     <div class="card-image">
                                         <a href="#">
-                                            <img src="https://image.tmdb.org/t/p/w500{{$movie['poster']}}" alt="poster" >
+                                            <img src="https://image.tmdb.org/t/p/w400{{$movie['poster']}}" alt="poster" >
                                         </a>
                                     </div>
                                 </div>

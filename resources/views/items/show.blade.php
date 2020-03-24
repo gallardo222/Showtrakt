@@ -23,12 +23,12 @@
                     <div class="carousel slide">
                         <img class="d-block img-raised" src="https://image.tmdb.org/t/p/w300{{$item['poster']}}" alt="First slide">
                     </div>
-
-                        <button class="btn btn-linkedin btn-round ml-3" type="button">
-                            <i class="now-ui-icons media-2_sound-wave"></i> Watched
+                    <div> <p> </p></div>
+                        <button class="btn btn-linkedin btn-round ml-4" type="button">
+                            <i class="now-ui-icons media-2_sound-wave"> </i> Watched
                         </button>
-                    <button class="btn btn-linkedin btn-round ml-2" type="button">
-                        <i class="now-ui-icons objects_spaceship"></i> See on Tmdb
+                    <button class="btn btn-linkedin btn-round ml-2" type="button" onclick="myFunction2()">
+                        <i class="now-ui-icons objects_spaceship" href="https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}"></i> See on Tmdb
                     </button>
                 </div>
                 <div class="col-md-7 ml-auto mr-auto">
@@ -42,8 +42,9 @@
                         <button class="btn btn-linkedin ml-5">
                             <i class="now-ui-icons media-2_sound-wave"></i> Tmdb Rating: {{$item['tmdb_rating']}}
                         </button>
-                        <button class="btn btn-linkedin ml-5">
+                        <button class="btn btn-linkedin ml-5" onclick="myFunction()">
                             <i class="now-ui-icons users_single-02"></i> Full Cast
+
                         </button>
                         <button class="btn btn-linkedin ml-5">
                             <i class="now-ui-icons education_agenda-bookmark"></i> Watch List
@@ -78,6 +79,15 @@
         </ul>
     </div>
 </footer>
+
+<script>
+    function myFunction() {
+location.href="https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}/cast";
+    }
+    function myFunction2() {
+        location.href="https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}";
+    }
+</script>
 
 <!--   Core JS Files   -->
 <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
