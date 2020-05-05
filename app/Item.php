@@ -2,7 +2,9 @@
 
 namespace App;
 use App\TMDB;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Item extends Model
 {
@@ -26,4 +28,29 @@ class Item extends Model
 
         return $item;
     }
+    public function create($data)
+    {
+        DB::beginTransaction();
+
+        //$data = $this->makeDataComplete($data);
+
+        $item = $this->store($data);
+
+        //$this->episodeService->create($item);
+        //$this->genreService->sync($item, $data['genre_ids'] ?? []);
+        //$this->alternativeTitleService->create($item);
+
+        //$this->storage->downloadImages($item->poster, $item->backdrop);
+
+        DB::commit();
+
+        return $item->fresh();
+    }
+
+
+
+
+
+
+
 }

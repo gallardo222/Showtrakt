@@ -24,9 +24,17 @@
                         <img class="d-block img-raised" src="https://image.tmdb.org/t/p/w300{{$item['poster']}}" alt="First slide">
                     </div>
                     <div> <p> </p></div>
-                        <button class="btn btn-linkedin btn-round ml-4" type="button">
+
+                    <form action="{{route('add.item', $item)}}" method="post">
+                        @csrf
+
+                        <button class="btn btn-linkedin btn-round ml-3" type="submit">
                             <i class="now-ui-icons media-2_sound-wave"> </i> Watched
                         </button>
+
+                    </form>
+
+
                     <button class="btn btn-linkedin btn-round ml-2" type="button" onclick="myFunction2()">
                         <i class="now-ui-icons objects_spaceship" href="https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}"></i> See on Tmdb
                     </button>
