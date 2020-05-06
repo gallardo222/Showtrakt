@@ -25,7 +25,7 @@
                     </div>
                     <div> <p> </p></div>
 
-                    <form action="{{route('add.item', $item)}}" method="post">
+                    <form action="{{route('items.store', $item)}}" method="post">
                         @csrf
 
                         <button class="btn btn-linkedin btn-round ml-3" type="submit">

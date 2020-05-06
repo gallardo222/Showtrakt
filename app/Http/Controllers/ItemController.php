@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use App\Item\Model;
+use GuzzleHttp\Client;
+use App\TMDB;
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -17,28 +22,33 @@ class ItemController extends Controller
     }
 
 
-    public function store($data, Item $item)
+    public function store(Request $request, TMDB $tmdb)
     {
-        dd($data);
-        return $this->firstOrCreate([
-            'tmdb_id' => $data['tmdb_id'],
-            'media_type' => $data['media_type'],
-        ], [
-            'title' => $data['title'],
-            'original_title' => $data['original_title'],
-            'poster' => $data['poster'] ?? '',
-            'rating' => 0,
-            'released' => $data['released'],
-            'released_timestamp' => Carbon::parse($data['released']),
-            'overview' => $data['overview'],
-            'backdrop' => $data['backdrop'],
-            'tmdb_rating' => $data['tmdb_rating'],
-            'imdb_id' => $data['imdb_id'],
-            'imdb_rating' => $data['imdb_rating'],
-            'youtube_key' => $data['youtube_key'],
-            'last_seen_at' => now(),
-            'slug' => $data['slug'],
-            'homepage' => $data['homepage'] ?? null,
+
+        $request->validate([
+            'title' => 'required',
+            'tmdb_id' => 'required',
+            'poster' => 'required',
+            'media_type' => 'required',
         ]);
+
+        $request->request->add(['user_id' => Auth::id()]);
+
+        $item=new Item($tmdb);
+
+        //dd($request->title);
+
+        $item->title = $request->title;
+        $item->tmdb_id = $request->tmdb_id;
+        $item->user_id = $request->user_id;
+        $item->poster = $request->poster;
+        $item->media_type = $request->media_type;
+
+
+        $item->save();
+
+        //Item::create($tmdb,$request->all());
+
+        return redirect()->back()->with('flash','Film added');
     }
 }

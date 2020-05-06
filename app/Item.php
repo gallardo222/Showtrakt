@@ -3,16 +3,22 @@
 namespace App;
 use App\TMDB;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class Item extends Model
 {
+    protected $fillable = ['title', 'tmdb_id', 'user_id', 'poster', 'media_type'];
+
     private $tmdb;
+    private $client;
 
     public function __construct(TMDB $tmdb)
     {
+
         $this->tmdb = $tmdb;
+
     }
 
     public function item($tmdbId, $mediaType)
@@ -28,29 +34,5 @@ class Item extends Model
 
         return $item;
     }
-    public function create($data)
-    {
-        DB::beginTransaction();
-
-        //$data = $this->makeDataComplete($data);
-
-        $item = $this->store($data);
-
-        //$this->episodeService->create($item);
-        //$this->genreService->sync($item, $data['genre_ids'] ?? []);
-        //$this->alternativeTitleService->create($item);
-
-        //$this->storage->downloadImages($item->poster, $item->backdrop);
-
-        DB::commit();
-
-        return $item->fresh();
-    }
-
-
-
-
-
-
 
 }

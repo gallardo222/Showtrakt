@@ -22,6 +22,6 @@ Route::get('/', 'HomeController@dashboard');
 
 Route::get('/item/{tmdbId}/{mediaType}', 'ItemController@item');
 
-Route::post('/add', 'ItemController@store')->name('add.item');
+Route::resource('items','ItemController');
 
 
