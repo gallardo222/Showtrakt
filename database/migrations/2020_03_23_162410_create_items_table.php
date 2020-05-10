@@ -16,7 +16,8 @@ class CreateItemsTable extends Migration
         Schema::create('items', function(Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('tmdb_id')->nullable();
-            $table->integer('user_id')->nullable();
+            $table->integer('user_id');
+            $table->foreign('user_id')->on(users)->references('id')->onDelete('cascade');
             $table->string('title')->index()->nullable();
             //$table->string('original_title')->index()->nullable();
             $table->string('poster')->nullable();
@@ -28,6 +29,8 @@ class CreateItemsTable extends Migration
 //            $table->string('slug')->nullable();
 //            $table->text('overview')->nullable();
             $table->boolean('watchlist')->default(false);
+            $table->boolean('watched')->default(false);
+
 //            $table->string('homepage')->nullable();
            // $table->integer('created_at');
             $table->timestamps();

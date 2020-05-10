@@ -8,7 +8,9 @@ use GuzzleHttp\Client;
 use App\TMDB;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
@@ -17,15 +19,21 @@ class ItemController extends Controller
     {
 
         $item=$item->item($tmdbId,$mediaType);
-        //dd($item);
-        return view('items.show')->with('item', $item);
+
+        $watched=Item::ItemWatched(Auth::id(), $tmdbId, true);
+        $watchlist=Item::ItemWatchlist(Auth::id(), $tmdbId, true);
+
+            return view('items.show')->with('item', $item)->with('watched', $watched)->with('watchlist', $watchlist);
+
     }
 
 
     public function store(Request $request, TMDB $tmdb)
     {
 
-        $request->validate([
+        $nameRoute = $request->route()->getName();
+
+	    $request->validate([
             'title' => 'required',
             'tmdb_id' => 'required',
             'poster' => 'required',
@@ -36,19 +44,84 @@ class ItemController extends Controller
 
         $item=new Item($tmdb);
 
-        //dd($request->title);
+        $find=Item::ItemExist($request->user_id, $request->tmdb_id);
 
-        $item->title = $request->title;
-        $item->tmdb_id = $request->tmdb_id;
-        $item->user_id = $request->user_id;
-        $item->poster = $request->poster;
-        $item->media_type = $request->media_type;
+        if ($find){
+
+            if ($nameRoute == 'items.store') {
+
+                if ($find) {
+                    if ($find->watched) {
+
+                        $this->destroy($find);
+
+                        return redirect()->back();
+
+                    } else {
+
+                        $item->watched = true;
+
+                        DB::table('items')->where('tmdb_id', $request->tmdb_id)->where('user_id', $request->user_id)->update(['watched' => $item->watched]);
+
+                        return redirect()->back();
+
+                    }
+                }
+            }
+
+            if ($nameRoute == 'item.watchlist') {
+
+                if ($find) {
+                    if ($find->watchlist) {
+
+                        $this->destroy($find);
+
+                        return redirect()->back();
+
+                    } else {
+
+                        $item->watchlist = true;
+
+                        DB::table('items')->where('tmdb_id', $request->tmdb_id)->where('user_id', $request->user_id)->update(['watchlist' => $item->watchlist]);
+
+                        return redirect()->back();
+
+                    }
+                }
+            }
+
+        }else{
+
+            $item->title = $request->title;
+            $item->tmdb_id = $request->tmdb_id;
+            $item->user_id = $request->user_id;
+            $item->poster = $request->poster;
+            $item->media_type = $request->media_type;
+
+            if ($nameRoute == 'item.watchlist')
+            {
+                $item->watchlist = true;
+            }
+            if ($nameRoute == 'items.store')
+            {
+                $item->watched = true;
+
+            }
+
+            $item->save();
+
+            return redirect()->back();
+
+        }
 
 
-        $item->save();
 
-        //Item::create($tmdb,$request->all());
 
-        return redirect()->back()->with('flash','Film added');
+    }
+
+    public function destroy($data)
+    {
+        DB::table('items')->where('tmdb_id', $data->tmdb_id)->where('user_id', $data->user_id)->delete();
+
     }
 }

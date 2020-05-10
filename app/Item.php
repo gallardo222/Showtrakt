@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Finder\Finder;
 
 class Item extends Model
 {
@@ -33,6 +34,35 @@ class Item extends Model
         $item = $this->tmdb->createItem($found, $mediaType);
 
         return $item;
+    }
+
+    public static function ItemExist($data1, $data2)
+    {
+        $match=['user_id' => $data1, 'tmdb_id' => $data2];
+        $item= DB::table('items')->where($match)->first();
+
+        return $item;
+    }
+
+    public static function ItemWatched($data1, $data2, $data3)
+    {
+        $match=['user_id' => $data1, 'tmdb_id' => $data2, 'watched' => $data3];
+        $item= DB::table('items')->where($match)->first();
+
+        return $item;
+    }
+
+    public static function ItemWatchlist($data1, $data2, $data3)
+    {
+        $match=['user_id' => $data1, 'tmdb_id' => $data2, 'watchlist' => $data3];
+        $item= DB::table('items')->where($match)->first();
+
+        return $item;
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }

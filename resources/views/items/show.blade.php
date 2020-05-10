@@ -25,19 +25,21 @@
                     </div>
                     <div> <p> </p></div>
 
-                    <form action="{{route('items.store', $item)}}" method="post">
-                        @csrf
+                    <div class="col-md-5 ml-5">
 
-                        <button class="btn btn-linkedin btn-round ml-3" type="submit">
-                            <i class="now-ui-icons media-2_sound-wave"> </i> Watched
+                        <form action="{{route('items.store', $item)}}" method="post" style="display: inline;">
+                            @csrf
+
+                            <button class="btn {{isset($watched) ? 'btn-facebook' : 'btn-linkedin'}} btn-round ml-3" type="submit">
+                                <i class="now-ui-icons media-2_sound-wave"> </i> {{isset($watched) ? 'Watched' : 'Watch'}}
+                            </button>
+                        </form>
+
+                        <button class="btn btn-linkedin btn-round" type="button" onclick="myFunction2()" style="display: inline;">
+                            <i class="now-ui-icons objects_spaceship" href="https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}"></i> See on Tmdb
                         </button>
+                    </div>
 
-                    </form>
-
-
-                    <button class="btn btn-linkedin btn-round ml-2" type="button" onclick="myFunction2()">
-                        <i class="now-ui-icons objects_spaceship" href="https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}"></i> See on Tmdb
-                    </button>
                 </div>
                 <div class="col-md-7 ml-auto mr-auto">
                     <h2 class="title text-white"> {{$item['title']}} </h2>
@@ -47,6 +49,7 @@
                     </div>
                     <hr style="background-color: white">
                     <div class="ml-auto mr-auto">
+
                         <button class="btn btn-linkedin ml-5">
                             <i class="now-ui-icons media-2_sound-wave"></i> Tmdb Rating: {{$item['tmdb_rating']}}
                         </button>
@@ -54,9 +57,12 @@
                             <i class="now-ui-icons users_single-02"></i> Full Cast
 
                         </button>
-                        <button class="btn btn-linkedin ml-5">
+                    <form action="{{route('item.watchlist', $item)}}" method="post" style="display: inline;">
+                        @csrf
+                        <button class="btn {{isset($watchlist) ? 'btn-facebook' : 'btn-linkedin'}} ml-5">
                             <i class="now-ui-icons education_agenda-bookmark"></i> Watch List
                         </button>
+                    </form>
                     </div>
                 </div>
             </div>
