@@ -43,29 +43,6 @@ class TMDB
         return $algo;
     }
 
-//    private function filterItems($items, $genreId = null)
-//    {
-//        $allId = $items->pluck('tmdb_id');
-//
-//        // Get all movies / tv shows that are already in our database.
-//        $searchInDB = Item::whereIn('tmdb_id', $allId)->with('latestEpisode')->withCount('episodesWithSrc');
-//
-//        if($genreId) {
-//            //$searchInDB->findByGenreId($genreId);
-//        }
-//
-//        $foundInDB = $searchInDB->get()->toArray();
-//
-//        // Remove them from the TMDb response.
-//        $filtered = $items->filter(function($item) use ($foundInDB) {
-//            return ! in_array($item['tmdb_id'], array_column($foundInDB, 'tmdb_id'));
-//        });
-//
-//        $merged = $filtered->merge($foundInDB);
-//
-//        // Reset array keys to display inDB items first.
-//        return array_values($merged->reverse()->toArray());
-//    }
 
     private function fetchPopular($mediaType)
     {
@@ -113,13 +90,6 @@ class TMDB
 
     public function createItem($data, $mediaType)
     {
-//        try {
-//            $release = Carbon::createFromFormat('Y-m-d',
-//                isset($data->release_date) ? ($data->release_date ?: Item::FALLBACK_DATE) : ($data->first_air_date ?? Item::FALLBACK_DATE)
-//            );
-//        } catch (\Exception $exception) {
-//            $release = Carbon::createFromFormat('Y-m-d', Item::FALLBACK_DATE);
-//        }
 
         $title = $data->name ?? $data->title;
 
@@ -127,13 +97,8 @@ class TMDB
             'tmdb_id' => $data->id,
             'title' => $title,
             'slug' => getSlug($title),
-            //'original_title' => $data->original_name ?? $data->original_title,
             'poster' => $data->poster_path,
             'media_type' => $mediaType,
-            //'released' => $release->copy()->getTimestamp(),
-            //'released_timestamp' => $release,
-            //'genre_ids' => $data->genre_ids,
-            //'genre' => Genre::whereIn('id', $data->genre_ids)->get(),
             'episodes' => [],
             'overview' => $data->overview,
             'backdrop' => $data->backdrop_path,
