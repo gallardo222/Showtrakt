@@ -17,13 +17,27 @@ class ItemController extends Controller
 
     public function item($tmdbId, $mediaType, Item $item)
     {
+        if ($mediaType == 'tv')
+        {
+            $episodes=$item->ItemEpisode($tmdbId, $mediaType);
+            $item=$item->item($tmdbId,$mediaType);
 
-        $item=$item->item($tmdbId,$mediaType);
+            $watched=Item::ItemWatched(Auth::id(), $tmdbId, true);
+            $watchlist=Item::ItemWatchlist(Auth::id(), $tmdbId, true);
 
-        $watched=Item::ItemWatched(Auth::id(), $tmdbId, true);
-        $watchlist=Item::ItemWatchlist(Auth::id(), $tmdbId, true);
+            return view('items.show')->with('item', $item)->with('watched', $watched)->with('watchlist', $watchlist)->with('episodes', $episodes);
+
+        }else{
+
+            $item=$item->item($tmdbId,$mediaType);
+
+            $watched=Item::ItemWatched(Auth::id(), $tmdbId, true);
+            $watchlist=Item::ItemWatchlist(Auth::id(), $tmdbId, true);
 
             return view('items.show')->with('item', $item)->with('watched', $watched)->with('watchlist', $watchlist);
+
+
+        }
 
     }
 

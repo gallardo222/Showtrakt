@@ -66,6 +66,54 @@
                     </div>
                 </div>
             </div>
+            @if(isset($episodes))
+                <hr style="background-color: white">
+                <div class="container">
+                    <div class="row">
+                            @foreach($episodes as $season)
+                                {{--<div class="row">--}}
+                            <div class="col-md-12">
+                                <div class="text-white">Season {{$season->season_number}}</div>
+
+                                <br>
+                                <div class="row">
+                                        @foreach($season->episodes as $episode)
+                                        <div class="col-lg-3 col-md-3" >
+
+                                        <div class="card card-blog">
+                                                <div class="card-image">
+                                                    <img class="img rounded" src="https://image.tmdb.org/t/p/w500{{$episode->still_path}}">
+                                                    </a>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h6 class="category text-primary">Features</h6>
+                                                    <h5 class="card-title">
+                                                        That’s One Way To Ditch Your Passenger
+                                                    </h5>
+                                                    <p class="card-description">
+                                                        As near as we can tell, this guy must have thought he was going over backwards and tapped the rear break to bring the nose down...
+                                                    </p>
+                                                    <div class="card-footer">
+                                                        <div class="author">
+                                                            <img src="assets/img/julie.jpg" alt="..." class="avatar img-raised">
+                                                            <span>Mike John</span>
+                                                        </div>
+                                                        <div class="stats stats-right">
+                                                            <i class="now-ui-icons tech_watch-time"></i> 5 min read
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                @endforeach
+
+
+                            </div>
+                            </div>
+
+            @endif
         </div>
     </div>
 </div>

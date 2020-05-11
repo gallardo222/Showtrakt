@@ -120,9 +120,22 @@ class TMDB
         return $rateLimit ? (int) $rateLimit[0] > 1 : true;
     }
 
-    private function untilEndOfDay()
+        /*Get current count of seasons*/
+
+    private function tvSeasonsCount($id, $mediaType)
     {
-        return now()->secondsUntilEndOfDay();
+        if($mediaType == 'tv') {
+            $response = $this->requestTmdb($this->base . '/3/tv/' . $id);
+
+            $seasons = collect(json_decode($response->getBody())->seasons);
+
+            return $seasons->filter(function ($season) {
+                // We don't need pilots
+                return $season->season_number > 0;
+            })->count();
+        }
+
+        return null;
     }
 
     public function details($tmdbId, $mediaType)
@@ -137,6 +150,23 @@ class TMDB
         }
 
         return json_decode($response->getBody());
+    }
+
+    /*Get all episodes of each season*/
+
+
+    public function tvEpisodes($tmdbId)
+    {
+        $seasons = $this->tvSeasonsCount($tmdbId, 'tv');
+        $data = [];
+
+        for($i = 1; $i <= $seasons; $i++) {
+            $response = $this->requestTmdb($this->base . '/3/tv/' . $tmdbId . '/season/' . $i);
+
+            $data[$i] = json_decode($response->getBody());
+        }
+
+        return $data;
     }
 
 

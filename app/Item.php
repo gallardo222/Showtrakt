@@ -36,6 +36,12 @@ class Item extends Model
         return $item;
     }
 
+    public function ItemEpisode($data1, $data2)
+    {
+        $item= $this->tmdb->tvEpisodes($data1,$data2);
+        return $item;
+    }
+
     public static function ItemExist($data1, $data2)
     {
         $match=['user_id' => $data1, 'tmdb_id' => $data2];
