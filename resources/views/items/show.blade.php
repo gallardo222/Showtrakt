@@ -3,120 +3,147 @@
 
 @include('partials.head')
 
-<body class="product-page">
-<!-- Google Tag Manager (noscript) -->
-<noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<!-- End Google Tag Manager (noscript) -->
-@include('partials.nav')
+<d class="product-page">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    @include('partials.nav')
 
-<div class="wrapper">
-    <div class="page-header page-header-small">
-        <div class="page-header-image" data-parallax="true" style="background-image: url('https://image.tmdb.org/t/p/original{{$item['backdrop']}}'); transform: translate3d(0px, 0px, 0px);">
+    <div class="wrapper">
+        <div class="page-header page-header-small">
+            <div class="page-header-image" data-parallax="true"
+                 style="background-image: url('https://image.tmdb.org/t/p/original{{$item['backdrop']}}'); transform: translate3d(0px, 0px, 0px);">
+            </div>
         </div>
-    </div>
-    <div class="section bg-dark">
-        <div class="container ">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="carousel slide">
-                        <img class="d-block img-raised" src="https://image.tmdb.org/t/p/w300{{$item['poster']}}" alt="First slide">
-                    </div>
-                    <div> <p> </p></div>
+        <div class="section bg-dark">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="carousel slide">
+                            <img class="d-block img-raised" src="https://image.tmdb.org/t/p/w300{{$item['poster']}}"
+                                 alt="First slide">
+                        </div>
+                        <div><p></p></div>
 
-                    <div class="col-md-5 ml-5">
+                        <div class="col-md-5 ml-5">
 
-                        <form action="{{route('items.store', $item)}}" method="post" style="display: inline;">
-                            @csrf
+                            <form action="{{route('items.store', $item)}}" method="post" style="display: inline;">
+                                @csrf
 
-                            <button class="btn {{isset($watched) ? 'btn-facebook' : 'btn-linkedin'}} btn-round ml-3" type="submit">
-                                <i class="now-ui-icons media-2_sound-wave"> </i> {{isset($watched) ? 'Watched' : 'Watch'}}
+                                <button class="btn {{isset($watched) ? 'btn-facebook' : 'btn-linkedin'}} btn-round ml-3"
+                                        type="submit">
+                                    <i class="now-ui-icons media-2_sound-wave"> </i> {{isset($watched) ? 'Watched' : 'Watch'}}
+                                </button>
+                            </form>
+
+                            <button class="btn btn-linkedin btn-round" type="button" onclick="myFunction2()"
+                                    style="display: inline;">
+                                <i class="now-ui-icons objects_spaceship"
+                                   href="https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}"></i>
+                                See on Tmdb
                             </button>
-                        </form>
+                        </div>
 
-                        <button class="btn btn-linkedin btn-round" type="button" onclick="myFunction2()" style="display: inline;">
-                            <i class="now-ui-icons objects_spaceship" href="https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}"></i> See on Tmdb
-                        </button>
                     </div>
+                    <div class="col-md-7 ml-auto mr-auto">
+                        <h2 class="title text-white"> {{$item['title']}} </h2>
+                        <hr style="background-color: white">
+                        <div class="container">
+                            <p class="text-white "> {{$item['overview']}} </p>
+                        </div>
+                        <hr style="background-color: white">
+                        <div class="ml-auto mr-auto">
 
+                            <button class="btn btn-linkedin ml-5">
+                                <i class="now-ui-icons media-2_sound-wave"></i> Tmdb Rating: {{$item['tmdb_rating']}}
+                            </button>
+                            <button class="btn btn-linkedin ml-5" onclick="myFunction()">
+                                <i class="now-ui-icons users_single-02"></i> Full Cast
+
+                            </button>
+                            <form action="{{route('item.watchlist', $item)}}" method="post" style="display: inline;">
+                                @csrf
+                                <button class="btn {{isset($watchlist) ? 'btn-facebook' : 'btn-linkedin'}} ml-5">
+                                    <i class="now-ui-icons education_agenda-bookmark"></i> Watch List
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-7 ml-auto mr-auto">
-                    <h2 class="title text-white"> {{$item['title']}} </h2>
+                @if(isset($episodes))
+                    @inject('episodeiswatched', 'App\Episode')
                     <hr style="background-color: white">
                     <div class="container">
-                        <p class="text-white "> {{$item['overview']}} </p>
-                    </div>
-                    <hr style="background-color: white">
-                    <div class="ml-auto mr-auto">
-
-                        <button class="btn btn-linkedin ml-5">
-                            <i class="now-ui-icons media-2_sound-wave"></i> Tmdb Rating: {{$item['tmdb_rating']}}
-                        </button>
-                        <button class="btn btn-linkedin ml-5" onclick="myFunction()">
-                            <i class="now-ui-icons users_single-02"></i> Full Cast
-
-                        </button>
-                    <form action="{{route('item.watchlist', $item)}}" method="post" style="display: inline;">
-                        @csrf
-                        <button class="btn {{isset($watchlist) ? 'btn-facebook' : 'btn-linkedin'}} ml-5">
-                            <i class="now-ui-icons education_agenda-bookmark"></i> Watch List
-                        </button>
-                    </form>
-                    </div>
-                </div>
-            </div>
-            @if(isset($episodes))
-                <hr style="background-color: white">
-                <div class="container">
-                    <div class="row">
-                            @foreach($episodes as $season)
-                                {{--<div class="row">--}}
+                        <div class="row">
                             <div class="col-md-12">
-                                <div class="text-white">Season {{$season->season_number}}</div>
+                                @foreach($episodes as $season)
+                                    <div id="accordion" role="tablist" aria-multiselectable="true"
+                                         class="card-collapse">
+                                        <div class="card card-plain">
+                                            <div class="card-header" role="tab" id="heading{{$season->season_number}}">
+                                                <a data-toggle="collapse" data-parent="#accordion"
+                                                   href="#collapse{{$season->season_number}}" aria-expanded="false"
+                                                   aria-controls="collapse{{$season->season_number}}" class="collapsed">
+                                                    <div class="text-white"><h2 class="text_bold text-center">
+                                                            Season {{$season->season_number}}</h2></div>
+                                                </a>
+                                            </div>
 
-                                <br>
-                                <div class="row">
-                                        @foreach($season->episodes as $episode)
-                                        <div class="col-lg-3 col-md-3" >
+                                            <div id="collapse{{$season->season_number}}" class="collapse"
+                                                 role="tabpanel" aria-labelledby="headingOne" style="">
+                                                <div class="row">
+                                                    @foreach($season->episodes as $episode)
+                                                        <div class="col-lg-3 col-md-3">
 
-                                        <div class="card card-blog">
-                                                <div class="card-image">
-                                                    <img class="img rounded" src="https://image.tmdb.org/t/p/w500{{$episode->still_path}}">
-                                                    </a>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h6 class="category text-primary">Features</h6>
-                                                    <h5 class="card-title">
-                                                        That’s One Way To Ditch Your Passenger
-                                                    </h5>
-                                                    <p class="card-description">
-                                                        As near as we can tell, this guy must have thought he was going over backwards and tapped the rear break to bring the nose down...
-                                                    </p>
-                                                    <div class="card-footer">
-                                                        <div class="author">
-                                                            <img src="assets/img/julie.jpg" alt="..." class="avatar img-raised">
-                                                            <span>Mike John</span>
+                                                            <div class="card card-blog">
+                                                                <div class="card-image">
+                                                                    <img class="img rounded"
+                                                                         src="https://image.tmdb.org/t/p/w500{{$episode->still_path}}">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h6 class="category text-primary text-center">
+                                                                          Season {{$episode->season_number}} Episode {{$episode->episode_number}}</h6>
+                                                                    <h5 class="card-title p-2">
+                                                                        {{$episode->name}}
+                                                                    </h5>
+                                                                    <p class="card-description p-2">
+                                                                        {{substr($episode->overview,0,100)}}...
+                                                                    </p>
+                                                                    <div class="card-footer">
+                                                                        <form action="{{route('episodes.store', ['tmdb_id'=>$episode->show_id, 'episode_tmdb_id'=>$episode->id])}}"
+                                                                              method="post" style="display: inline;">
+                                                                            @csrf
+
+                                                                            <button class="btn {{$episodeiswatched->EpisodeExist(\Illuminate\Support\Facades\Auth::id(),$episode->id) ? 'btn-facebook' : 'btn-linkedin'}} btn-round ml-5"
+                                                                                    type="submit">
+                                                                                <i class="now-ui-icons media-2_sound-wave"> </i> {{$episodeiswatched->EpisodeExist(\Illuminate\Support\Facades\Auth::id(),$episode->id) ? 'Watched' : 'Watch'}}
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="stats stats-right">
-                                                            <i class="now-ui-icons tech_watch-time"></i> 5 min read
-                                                        </div>
-                                                    </div>
+                                                    @endforeach
                                                 </div>
+
                                             </div>
                                         </div>
-                                    @endforeach
-                                </div>
+
+                                    </div>
+
                                 @endforeach
-
-
                             </div>
-                            </div>
-
-            @endif
+                        </div>
+                    </div>
+                @endif
+            </div>
         </div>
     </div>
-</div>
+</d>
 
 <footer class="footer" data-background-color="black">
     <div class="container">
@@ -129,12 +156,14 @@
                 </a>
             </li>
             <li>
-                <a href="https://www.facebook.com/CreativeTim" target="_blank" class="btn btn-icon btn-neutral btn-link">
+                <a href="https://www.facebook.com/CreativeTim" target="_blank"
+                   class="btn btn-icon btn-neutral btn-link">
                     <i class="fab fa-facebook-square"></i>
                 </a>
             </li>
             <li>
-                <a href="https://www.instagram.com/CreativeTimOfficial" target="_blank" class="btn btn-icon btn-neutral btn-link">
+                <a href="https://www.instagram.com/CreativeTimOfficial" target="_blank"
+                   class="btn btn-icon btn-neutral btn-link">
                     <i class="fab fa-instagram"></i>
                 </a>
             </li>
@@ -144,10 +173,11 @@
 
 <script>
     function myFunction() {
-location.href="https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}/cast";
+        location.href = "https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}/cast";
     }
+
     function myFunction2() {
-        location.href="https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}";
+        location.href = "https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_id']}}";
     }
 </script>
 
@@ -167,8 +197,6 @@ location.href="https://www.themoviedb.org/{{$item['media_type']}}/{{$item['tmdb_
 <script src="/assets/js/plugins/bootstrap-selectpicker.js" type="text/javascript"></script>
 <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
 <script src="/assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
 <script src="/assets/js/now-ui-kit.js?v=1.2.2" type="text/javascript"></script>
 </body>

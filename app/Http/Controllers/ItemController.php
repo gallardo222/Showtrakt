@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Episode;
 use App\Item;
 use App\Item\Model;
 use GuzzleHttp\Client;

@@ -16,8 +16,8 @@ class CreateItemsTable extends Migration
         Schema::create('items', function(Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('tmdb_id')->nullable();
-            $table->integer('user_id');
-            $table->foreign('user_id')->on(users)->references('id')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('title')->index()->nullable();
             $table->string('poster')->nullable();
             $table->string('media_type')->default('movie');
