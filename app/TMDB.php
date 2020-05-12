@@ -130,7 +130,6 @@ class TMDB
             $seasons = collect(json_decode($response->getBody())->seasons);
 
             return $seasons->filter(function ($season) {
-                // We don't need pilots
                 return $season->season_number > 0;
             })->count();
         }
@@ -167,6 +166,46 @@ class TMDB
         }
 
         return $data;
+    }
+
+    public function search($title, $mediaType = null)
+    {
+        if( ! $title) {
+            return response([], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $tv = collect();
+        $movies = collect();
+
+        if( ! $mediaType || $mediaType == 'tv') {
+            $response = $this->fetchSearch($title, 'tv');
+            $tv = collect($this->createItems($response, 'tv'));
+        }
+
+        if( ! $mediaType || $mediaType == 'movies' || $mediaType == 'movie') {
+            $response = $this->fetchSearch($title, 'movie');
+            $movies = collect($this->createItems($response, 'movie'));
+        }
+
+        $sortedEntries = $movies
+            ->merge($tv)
+            ->sortByDesc('popularity');
+
+        $withExactTitles = $sortedEntries->filter(function($entry) use ($title) {
+            return strtolower($entry['title']) == strtolower($title);
+        });
+
+        $rest = $sortedEntries->reject(function($entry) use ($title) {
+            return strtolower($entry['title']) == strtolower($title);
+        });
+
+        return $withExactTitles->merge($rest)->values()->all();
+    }
+
+    private function fetchSearch($title, $mediaType) {
+        return $this->requestTmdb($this->base . '/3/search/' . $mediaType, [
+            'query' => $title,
+        ]);
     }
 
 

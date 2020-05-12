@@ -71,4 +71,12 @@ class Item extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function search($title)
+    {
+
+        $item= $this->tmdb->search($title);
+
+        return $item;
+    }
+
 }

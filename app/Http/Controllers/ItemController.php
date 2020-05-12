@@ -42,6 +42,21 @@ class ItemController extends Controller
 
     }
 
+    public function search()
+    {
+
+        return view('items.search');
+    }
+
+    public function searchItem(Request $request, Item $item)
+    {
+        //dd($request->all());
+        $item=$item->search($request->search);
+        //dd($item);
+
+        return view('items.search')->with('item',$item);
+    }
+
 
     public function store(Request $request, TMDB $tmdb)
     {
