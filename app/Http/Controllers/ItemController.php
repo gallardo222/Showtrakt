@@ -51,10 +51,10 @@ class ItemController extends Controller
     public function searchItem(Request $request, Item $item)
     {
         //dd($request->all());
-        $item=$item->search($request->search);
+        $items=$item->search($request->search);
         //dd($item);
 
-        return view('items.search')->with('item',$item);
+        return view('items.search')->with('items',$items);
     }
 
 
