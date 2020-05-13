@@ -103,16 +103,16 @@
 
             <div class="container" style="align-items: center; !important">
                 <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-8">
                         <img src="assets/img/showtrakt-logo-bg.png" alt="Rounded Image" class="rounded"
                              style="opacity: 20%;">
                     </div>
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-8">
                         <p class="text-white">I'm Sorry Barry, we didn't find your mother's killer </p>
                     </div>
 

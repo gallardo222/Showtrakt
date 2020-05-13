@@ -10,7 +10,11 @@
 
 ![alt text](https://i.imgur.com/SHVJt7P.png "Dashboard")
 
-![alt text](https://i.imgur.com/NWKBsN7.png "Login")
+![alt text](https://i.imgur.com/wCwTs8f.png "Show Movie_View")
 
-![alt text](https://i.imgur.com/hFmOYUO.png "Register")
+![alt text](https://i.imgur.com/xHScJdr.png "Show TVShow_View")
+
+![alt text](https://i.imgur.com/P532PWx.png "Search Default")
+
+![alt text](https://i.imgur.com/aofYKIp.png "Search")
 

@@ -27,6 +27,8 @@ Route::post('/watchlist', 'ItemController@store')->middleware('auth')->name('ite
 Route::resource('episodes','EpisodeController')->middleware('auth');
 Route::get('/search', 'ItemController@search')->middleware('auth');
 Route::get('/searched', 'ItemController@searchItem')->middleware('auth')->name('item.search');
+Route::get('/profile', 'UserController@show')->middleware('auth')->name('profile.show');
+
 
 
 

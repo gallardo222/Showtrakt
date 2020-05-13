@@ -66,9 +66,9 @@ class Item extends Model
         return $item;
     }
 
-    public function owner()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 
     public function search($title)
