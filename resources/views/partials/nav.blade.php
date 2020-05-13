@@ -20,7 +20,7 @@
 
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{'register'}}">
+                        <a class="nav-link" href="/profile">
                             Profile
                         </a>
                     </li>

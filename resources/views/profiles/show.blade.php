@@ -12,6 +12,19 @@
     <!-- End Google Tag Manager (noscript) -->
     @include('partials.nav')
 
+    <style>
+        .scrolling-wrapper-flexbox {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+
+        .card {
+            flex: 0 0 auto;
+            }
+        }
+    </style>
+
     <div class="wrapper">
         <div class="page-header page-header-small">
             <div class="page-header-image" data-parallax="true"
@@ -91,6 +104,7 @@
                         </div>
 
                     </div>
+
                     <div class="col-md-3">
                         <div class="card" data-background-color="blue" style="padding-top: -3%; background-color: #0062cc">
                             <div class="card-body" >
@@ -121,20 +135,28 @@
                         <div class="card" data-background-color="blue" style="padding-top: -3%; background-color: #3b5998">
                             <div class="card-body" >
                                 <h5 class="category-social text-center">
-                                    <i class="now-ui-icons objects_spaceship"></i> Ranking
+                                    <i class="now-ui-icons sport_trophy"></i> Ranking
                                 </h5>
                                 <hr style="background-color: white">
                                 <div class="row text-center">
                                     <div class="col-md-12">
                                         <h4 class="category-social">
-                                            <i class="now-ui-icons media-2_sound-wave"></i> Watched: <strong style="display: inline;"><i>150</i></strong>
+                                            <i class="now-ui-icons media-1_button-play"></i> Movies: <strong style="display: inline;"><i>1 of 20</i> Users</strong>
                                         </h4>
                                     </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-md-12">
                                         <h4 class="category-social">
-                                            <i class="now-ui-icons education_agenda-bookmark"></i> Watchlist: <strong style="display: inline;"><i>200</i></strong>
+                                            <i class="now-ui-icons tech_tv"></i> TV Shows: <strong style="display: inline;"><i>1 of 20</i> Users</strong>
+                                        </h4>
+                                    </div>
+
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-md-12">
+                                        <h4 class="category-social">
+                                            <i class="now-ui-icons objects_spaceship"></i> General: <strong style="display: inline;"><i>1 of 20</i> Users</strong>
                                         </h4>
                                     </div>
 
@@ -143,6 +165,7 @@
                         </div>
 
                     </div>
+
 
 
                 </div>
@@ -154,43 +177,100 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="scrolling-wrapper-flexbox">
                         @foreach($items as $item)
 
 
                             @if($item->media_type == 'tv' && $item->watchlist == 1)
-                            <div class="col-md-2" >
-                                <div class="card card-product card-plain">
-                                    <div class="card-image">
-                                        <a href="/item/{{$item->tmdb_id}}/{{$item->media_type}}">
-                                            <img src="https://image.tmdb.org/t/p/w500{{$item->poster}}" alt="poster" >
-                                        </a>
+                                <div class="col-md-2" >
+                                    <div class="card card-product card-plain">
+                                        <div class="card-image">
+                                            <a href="/item/{{$item->tmdb_id}}/{{$item->media_type}}">
+                                                <img src="https://image.tmdb.org/t/p/w500{{$item->poster}}" alt="poster" >
+                                            </a>
+                                        </div>
                                     </div>
-                                    {{--<div class="card-body">--}}
-                                    {{--<a href="#">--}}
-                                    {{--<h4 class="card-title">{{$movie['title']}}</h4>--}}
-                                    {{--</a>--}}
-                                    {{--</div>--}}
                                 </div>
-                                <!-- end card -->
-                            </div>
-                        @endif
+                            @endif
                         @endforeach
+                    </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-md-12">
                         <h6 class="text-white">TV Shows watched</h6>
                     </div>
                 </div>
                 <div class="row">
+                    <div class="scrolling-wrapper-flexbox">
+                        @foreach($items as $item)
+
+
+                            @if($item->media_type == 'tv' && $item->watched == 1)
+                                <div class="col-md-2" >
+                                    <div class="card card-product card-plain">
+                                        <div class="card-image">
+                                            <a href="/item/{{$item->tmdb_id}}/{{$item->media_type}}">
+                                                <img src="https://image.tmdb.org/t/p/w500{{$item->poster}}" alt="poster" >
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+                <br>
+                <div class="row">
                     <div class="col-md-12">
                         <h6 class="text-white">Movies Watchlist</h6>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <h6 class="text-white">Movies watchlist</h6>
+                    <div class="scrolling-wrapper-flexbox">
+                        @foreach($items as $item)
+
+
+                            @if($item->media_type == 'movie' && $item->watchlist == 1)
+                                <div class="col-md-2" >
+                                    <div class="card card-product card-plain">
+                                        <div class="card-image">
+                                            <a href="/item/{{$item->tmdb_id}}/{{$item->media_type}}">
+                                                <img src="https://image.tmdb.org/t/p/w500{{$item->poster}}" alt="poster" >
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 class="text-white">Movies watched</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="scrolling-wrapper-flexbox">
+                        @foreach($items as $item)
+
+
+                            @if($item->media_type == 'movie' && $item->watched == 1)
+                                <div class="col-md-2" >
+                                    <div class="card card-product card-plain">
+                                        <div class="card-image">
+                                            <a href="/item/{{$item->tmdb_id}}/{{$item->media_type}}">
+                                                <img src="https://image.tmdb.org/t/p/w500{{$item->poster}}" alt="poster" >
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+
 
             </div>
     </div>

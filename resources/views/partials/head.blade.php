@@ -31,4 +31,39 @@
         {{--})(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');--}}
     {{--</script>--}}
     {{--<!-- End Google Tag Manager -->--}}
+    <style>
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-button {
+            width: 13px;
+            height: 13px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0395b2;
+            border: 2px none #ffffff;
+            border-radius: 93px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1d2ac7;
+        }
+        ::-webkit-scrollbar-thumb:active {
+            background: #3f60df;
+        }
+        ::-webkit-scrollbar-track {
+            background: #666666;
+            border: 3px none #ffffff;
+            border-radius: 77px;
+        }
+        ::-webkit-scrollbar-track:hover {
+            background: #666666;
+        }
+        ::-webkit-scrollbar-track:active {
+            background: #333333;
+        }
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+    </style>
 </head>
