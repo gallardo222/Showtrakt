@@ -30,5 +30,20 @@ Route::get('/searched', 'ItemController@searchItem')->middleware('auth')->name('
 Route::get('/profile', 'UserController@show')->middleware('auth')->name('profile.show');
 
 
+Route::group([
+    'prefix' => 'admin',
+    'namespace' => 'Admin',
+    'middleware' => 'auth'
+], function() {
+
+    Route::get('/', 'AdminController@index')->name('dashboard');
+
+    Route::resource('posts', 'PostsController', ['except' => ['show', 'create'], 'as' => 'admin']);
+
+    Route::resource('users', 'UsersController', ['as' => 'admin']);
+
+});
+
+
 
 

@@ -117,4 +117,20 @@ class Item extends Model
         return $itemsPerUser;
     }
 
+    public static function TotalItems()
+    {
+
+        $showswatched= DB::table('items')->where('watched' , 1)->where('media_type', 'tv')->select('id')->count('id');
+        $moviesswatched= DB::table('items')->where('watched' , 1)->where('media_type', 'movie')->select('id')->count('id');
+
+        $totalitems= [
+
+            'showswatched' => $showswatched,
+            'moviesswatched' => $moviesswatched,
+
+        ];
+
+        return $totalitems;
+    }
+
 }
