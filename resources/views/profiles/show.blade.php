@@ -69,7 +69,7 @@
                                 <hr style="background-color: white">
                                 <br>
                                 <p class="card-description text-center">
-                                    <strong><i>"The supreme art of war is to subdue the enemy without fighting."</i></strong>
+                                    <strong><i>"{{$user->phrase[0]}}"</i></strong>
                                 </p>
                             </div>
                         </div>
@@ -88,14 +88,14 @@
                                 <div class="row text-center">
                                     <div class="col-md-12">
                                         <h4 class="category-social">
-                                            <i class="now-ui-icons media-2_sound-wave"></i> Watched: <strong style="display: inline;"><i>150</i></strong>
+                                            <i class="now-ui-icons media-2_sound-wave"></i> Watched: <strong style="display: inline;"><i>{{$user->userItemsWatched['showswatched']}}</i></strong>
                                         </h4>
                                     </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-md-12">
                                         <h4 class="category-social">
-                                            <i class="now-ui-icons education_agenda-bookmark"></i> Watchlist: <strong style="display: inline;"><i>200</i></strong>
+                                            <i class="now-ui-icons education_agenda-bookmark"></i> Watchlist: <strong style="display: inline;"><i>{{$user->userItemsWatched['showswatchlist']}}</i></strong>
                                         </h4>
                                     </div>
 
@@ -115,14 +115,14 @@
                                 <div class="row text-center">
                                     <div class="col-md-12">
                                         <h4 class="category-social">
-                                            <i class="now-ui-icons media-2_sound-wave"></i> Watched: <strong style="display: inline;"><i>150</i></strong>
+                                            <i class="now-ui-icons media-2_sound-wave"></i> Watched: <strong style="display: inline;"><i>{{$user->userItemsWatched['moviesswatched']}}</i></strong>
                                         </h4>
                                     </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-md-12">
                                         <h4 class="category-social">
-                                            <i class="now-ui-icons education_agenda-bookmark"></i> Watchlist: <strong style="display: inline;"><i>200</i></strong>
+                                            <i class="now-ui-icons education_agenda-bookmark"></i> Watchlist: <strong style="display: inline;"><i>{{$user->userItemsWatched['moviesswatchlist']}}</i></strong>
                                         </h4>
                                     </div>
 
@@ -141,14 +141,14 @@
                                 <div class="row text-center">
                                     <div class="col-md-12">
                                         <h4 class="category-social">
-                                            <i class="now-ui-icons media-1_button-play"></i> Movies: <strong style="display: inline;"><i>1 of 20</i> Users</strong>
+                                            <i class="now-ui-icons media-1_button-play"></i> Movies: <strong style="display: inline;"><i>1 of {{$user->totalusers}}</i> Users</strong>
                                         </h4>
                                     </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-md-12">
                                         <h4 class="category-social">
-                                            <i class="now-ui-icons tech_tv"></i> TV Shows: <strong style="display: inline;"><i>1 of 20</i> Users</strong>
+                                            <i class="now-ui-icons tech_tv"></i> TV Shows: <strong style="display: inline;"><i>1 of {{$user->totalusers}}</i> Users</strong>
                                         </h4>
                                     </div>
 
@@ -156,7 +156,7 @@
                                 <div class="row text-center">
                                     <div class="col-md-12">
                                         <h4 class="category-social">
-                                            <i class="now-ui-icons objects_spaceship"></i> General: <strong style="display: inline;"><i>1 of 20</i> Users</strong>
+                                            <i class="now-ui-icons objects_spaceship"></i> General: <strong style="display: inline;"><i>1 of {{$user->totalusers}}</i> Users</strong>
                                         </h4>
                                     </div>
 

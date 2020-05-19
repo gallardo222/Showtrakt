@@ -22,6 +22,7 @@ class ItemController extends Controller
         {
             $episodes=$item->ItemEpisode($tmdbId, $mediaType);
             $item=$item->item($tmdbId,$mediaType);
+            //dd($episodes);
 
             $watched=Item::ItemWatched(Auth::id(), $tmdbId, true);
             $watchlist=Item::ItemWatchlist(Auth::id(), $tmdbId, true);

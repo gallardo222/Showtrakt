@@ -94,15 +94,28 @@
 
                                             <div id="collapse{{$season->season_number}}" class="collapse"
                                                  role="tabpanel" aria-labelledby="headingOne" style="">
+                                                <br>
                                                 <div class="row">
                                                     @foreach($season->episodes as $episode)
                                                         <div class="col-lg-3 col-md-3">
 
                                                             <div class="card card-blog">
                                                                 <div class="card-image">
-                                                                    <img class="img rounded"
-                                                                         src="https://image.tmdb.org/t/p/w500{{$episode->still_path}}">
-                                                                    </a>
+
+                                                                        @if(!empty($episode->still_path))
+
+                                                                        <img class="img rounded"
+                                                                             src="https://image.tmdb.org/t/p/w500{{$episode->still_path}}">
+                                                                        </a>
+                                                                        @else
+
+                                                                        <img class="img rounded"
+                                                                             src="/assets/img/default_episode_image.jpg">
+                                                                        </a>
+
+                                                                        @endif
+
+
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <h6 class="category text-primary text-center">
@@ -110,18 +123,37 @@
                                                                     <h5 class="card-title p-2">
                                                                         {{$episode->name}}
                                                                     </h5>
+                                                                    @if(!empty($episode->overview))
                                                                     <p class="card-description p-2">
                                                                         {{substr($episode->overview,0,100)}}...
                                                                     </p>
+                                                                    @else
+
+                                                                        <p class="card-description p-2">
+                                                                            Coming Soon...
+                                                                        </p>
+
+                                                                        @endif
                                                                     <div class="card-footer">
                                                                         <form action="{{route('episodes.store', ['tmdb_id'=>$episode->show_id, 'episode_tmdb_id'=>$episode->id])}}"
                                                                               method="post" style="display: inline;">
                                                                             @csrf
 
-                                                                            <button class="btn {{$episodeiswatched->EpisodeExist(\Illuminate\Support\Facades\Auth::id(),$episode->id) ? 'btn-facebook' : 'btn-linkedin'}} btn-round ml-5"
-                                                                                    type="submit">
-                                                                                <i class="now-ui-icons media-2_sound-wave"> </i> {{$episodeiswatched->EpisodeExist(\Illuminate\Support\Facades\Auth::id(),$episode->id) ? 'Watched' : 'Watch'}}
-                                                                            </button>
+                                                                            @if($episodeiswatched->EpisodeExist(\Illuminate\Support\Facades\Auth::id(),$episode->id))
+
+                                                                                <button class="btn btn-facebook btn-round ml-5"
+                                                                                        type="submit">
+                                                                                    <i class="now-ui-icons media-2_sound-wave"> </i> Watched
+                                                                                </button>
+
+                                                                            @else
+
+                                                                                <button class="btn btn-linkedin btn-round ml-5"
+                                                                                        type="submit">
+                                                                                    <i class="now-ui-icons media-2_sound-wave"> </i> Watch
+                                                                                </button>
+
+                                                                            @endif
                                                                         </form>
                                                                     </div>
                                                                 </div>

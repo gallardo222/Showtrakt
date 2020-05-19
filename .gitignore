@@ -5,6 +5,7 @@
 /vendor
 /.idea
 
+cosas_nuevas.txt
 .env
 .env.backup
 .phpunit.result.cache
