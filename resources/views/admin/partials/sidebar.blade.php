@@ -22,9 +22,9 @@
                 <img src="https://i.pinimg.com/originals/81/63/94/816394a06b8c3a129155a4dd182fe79b.jpg" />
             </div>
             <div class="info">
-                <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                <a data-toggle="collapse" href="" class="collapsed">
               <span>
-                Ash Ketchum
+                {{\Illuminate\Support\Facades\Auth::user()->name}}
               </span>
                 </a>
                 <div class="clearfix"></div>
@@ -32,26 +32,26 @@
         </div>
         <ul class="nav">
             <li class="active">
-                <a href="../examples/dashboard.html">
-                    <i class="now-ui-icons design_app"></i>
+                <a href="/admin">
+                    <i class="now-ui-icons objects_spaceship"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
             <li>
-                <a href="../examples/widgets.html">
-                    <i class="now-ui-icons objects_diamond"></i>
+                <a href="/admin/users">
+                    <i class="now-ui-icons users_single-02"></i>
                     <p>Users</p>
                 </a>
             </li>
             <li>
                 <a href="../examples/widgets.html">
-                    <i class="now-ui-icons objects_diamond"></i>
+                    <i class="now-ui-icons text_align-center"></i>
                     <p>Comments</p>
                 </a>
             </li>
             <li>
                 <a href="../examples/widgets.html">
-                    <i class="now-ui-icons objects_diamond"></i>
+                    <i class="now-ui-icons education_agenda-bookmark"></i>
                     <p>Posts</p>
                 </a>
             </li>

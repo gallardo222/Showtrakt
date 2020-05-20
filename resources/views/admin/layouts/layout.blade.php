@@ -16,6 +16,7 @@
     <!-- CSS Files -->
     <link href="/dashboard-pro/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/dashboard-pro/assets/css/now-ui-dashboard.css?v=1.2.0" rel="stylesheet" />
+    @stack('styles')
 
     <style>
         ::-webkit-scrollbar {
@@ -54,8 +55,8 @@
     </style>
 </head>
 
-<body class=" sidebar-mini ">
-<div class="wrapper ">
+<body class=" sidebar-mini  ">
+<div class="wrapper  ">
 @include('admin.partials.sidebar')
     <div class="main-panel">
         <!-- Navbar -->
@@ -106,6 +107,8 @@
 <script src="/dashboard-pro/assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="/dashboard-pro/assets/js/now-ui-dashboard.min.js?v=1.2.0" type="text/javascript"></script>
+
+@stack('scripts')
 </body>
 
 </html>

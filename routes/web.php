@@ -38,7 +38,7 @@ Route::group([
 
     Route::get('/', 'AdminController@index')->name('dashboard');
 
-    Route::resource('posts', 'PostsController', ['except' => ['show', 'create'], 'as' => 'admin']);
+    //Route::resource('posts', 'PostsController', ['except' => ['show', 'create'], 'as' => 'admin']);
 
     Route::resource('users', 'UsersController', ['as' => 'admin']);
 

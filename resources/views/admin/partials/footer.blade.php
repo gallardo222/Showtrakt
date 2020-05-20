@@ -4,7 +4,7 @@
             <ul>
                 <li>
                     <a href="https://www.creative-tim.com">
-                        Creative Tim
+                        Showtrakt
                     </a>
                 </li>
                 <li>
@@ -23,9 +23,8 @@
             &copy;
             <script>
                 document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed by
-            <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            </script>
+
         </div>
     </div>
 </footer>
