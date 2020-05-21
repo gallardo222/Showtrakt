@@ -15,7 +15,7 @@
 //    return view('welcome');
 //});
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@dashboard');
@@ -41,8 +41,12 @@ Route::group([
     //Route::resource('posts', 'PostsController', ['except' => ['show', 'create'], 'as' => 'admin']);
 
     Route::resource('users', 'UsersController', ['as' => 'admin']);
-
+    Route::get('/invite', 'UsersController@invite')->name('admin.users.invite');
+    Route::post('/invite', 'UsersController@process_invites')->name('process_invite');
 });
+
+Route::get('/registration/{token}', 'UserController@registration_view')->name('registration');
+Route::POST('/registration', 'Auth\RegisterController@register')->name('accept');
 
 
 

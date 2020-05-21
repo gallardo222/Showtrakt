@@ -7,10 +7,14 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title text-center">All Users</h3>
+
                 </div>
                 <div class="card-body">
                     <div class="toolbar">
                         <!--        Here you can write extra buttons/actions for the toolbar              -->
+                        <div class=" col-md-2 ml-auto">
+                            <a href="{{ route('admin.users.invite') }}" class="btn btn-info btn-xl "> Invite new User</a>
+                        </div>
                     </div>
                     <table id="datatable" class="table table-striped table-bordered dataTable dtr-inline" cellspacing="0" width="100%" role="grid" aria-describedby="datatable_info" style="width: 100%;">                        <thead>
                         <div class="row">

@@ -133,7 +133,7 @@
                     <div class="card card-signup" >
                         <div class="card-body">
                             <h4 class="card-title text-center">Register</h4>
-                            <form class="form" method="POST" action="{{route('register')}}">
+                            <form class="form" method="POST" action="{{route('accept')}}">
                                 @csrf
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -141,6 +141,17 @@
                                     </div>
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" placeholder="Name">
                                     @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="now-ui-icons media-2_note-03"></i></span>
+                                    </div>
+                                    <input id="custom_title" type="text" class="form-control @error('custom_title') is-invalid @enderror" name="custom_title" value="{{ old('custom_title') }}" autocomplete="custom_title" placeholder="custom_title">
+                                    @error('custom_title')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -169,7 +180,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></span>
                                     </div>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
+                                    <input id="email" readonly type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$invite->email}}" autocomplete="email">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
