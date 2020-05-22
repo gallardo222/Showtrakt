@@ -50,7 +50,7 @@
                 </a>
             </li>
             <li>
-                <a href="../examples/widgets.html">
+                <a href="/admin/post">
                     <i class="now-ui-icons education_agenda-bookmark"></i>
                     <p>Posts</p>
                 </a>

@@ -43,10 +43,21 @@ Route::group([
     Route::resource('users', 'UsersController', ['as' => 'admin']);
     Route::get('/invite', 'UsersController@invite')->name('admin.users.invite');
     Route::post('/invite', 'UsersController@process_invites')->name('process_invite');
+
+    Route::get('/post', 'PostController@index');
+    Route::get('/post/create', 'PostController@create')->name('admin.posts.create');
+    Route::post('/post/create', 'PostController@store')->name('admin.posts.store');
+    Route::get('edit/{slug}', 'PostController@edit')->name('admin.posts.edit');
+    Route::put('/post/update', 'PostController@update')->name('admin.posts.update');
+    Route::delete('/post/delete/{post}', 'PostController@destroy')->name('admin.posts.destroy');
 });
 
 Route::get('/registration/{token}', 'UserController@registration_view')->name('registration');
 Route::POST('/registration', 'Auth\RegisterController@register')->name('accept');
+
+Route::get('/blog', 'PostController@index')->name('posts.index');
+Route::get('/blog/{slug}', 'PostController@show');
+
 
 
 

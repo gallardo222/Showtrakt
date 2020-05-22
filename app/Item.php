@@ -133,4 +133,9 @@ class Item extends Model
         return $totalitems;
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comments', 'on_post');
+    }
+
 }
