@@ -51,7 +51,7 @@
                                             <td>{{ $post->title }}</td>
                                         </div>
                                         <div class="col-md-5">
-                                            <td>{{ $post->body }}</td>
+                                            <td>{{substr($post->body,0,100)}}...</td>
                                         </div>
                                         <div class="col-md-2">
                                             <td>
