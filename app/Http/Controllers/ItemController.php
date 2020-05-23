@@ -22,12 +22,13 @@ class ItemController extends Controller
         {
             $episodes=$item->ItemEpisode($tmdbId, $mediaType);
             $item=$item->item($tmdbId,$mediaType);
-            //dd($episodes);
+            //dd($item);
+            $comments=DB::table('comments')->where('item_id', $tmdbId)->get();
 
             $watched=Item::ItemWatched(Auth::id(), $tmdbId, true);
             $watchlist=Item::ItemWatchlist(Auth::id(), $tmdbId, true);
 
-            return view('items.show')->with('item', $item)->with('watched', $watched)->with('watchlist', $watchlist)->with('episodes', $episodes);
+            return view('items.show')->with('item', $item)->with('watched', $watched)->with('watchlist', $watchlist)->with('episodes', $episodes)->with('comments', $comments);
 
         }else{
 
@@ -35,8 +36,10 @@ class ItemController extends Controller
 
             $watched=Item::ItemWatched(Auth::id(), $tmdbId, true);
             $watchlist=Item::ItemWatchlist(Auth::id(), $tmdbId, true);
+            $comments=DB::table('comments')->where('item_id', $tmdbId)->get();
 
-            return view('items.show')->with('item', $item)->with('watched', $watched)->with('watchlist', $watchlist);
+
+            return view('items.show')->with('item', $item)->with('watched', $watched)->with('watchlist', $watchlist)->with('comments', $comments);
 
 
         }

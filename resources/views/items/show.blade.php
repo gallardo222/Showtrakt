@@ -172,6 +172,65 @@
                         </div>
                     </div>
                 @endif
+
+
+                @auth
+                    <br><br><br><br>
+                    <div class="col-md-12 mr-auto">
+                        <h2 class="text-white font-weight-bold">Comments</h2>
+                    </div>
+
+                    <form action="{{route('comments.create')}}" method="post">
+                        @csrf @method('put')
+
+                        <div class="media media-post">
+                        <a class="pull-left author" href="#pablo">
+                            <div class="avatar">
+                                <img class="media-object img-raised" alt="64x64" src="/assets/img/james.jpg">
+                            </div>
+                        </a>
+                        <div class="media-body">
+                            <input type="hidden" name="tmdb_id" id="tmdb_id" value="{{$item['tmdb_id']}}" />
+
+                            <textarea class="form-control" name="body" placeholder="Write some nice stuff or nothing..." rows="6"></textarea>
+                            <div class="media-footer">
+                                <button class="btn btn-info btn-wd pull-right">
+                                   Post Comment
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                @forelse($comments as $comment)
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="media">
+                                <a class="pull-left" href="#pablo">
+                                    <div class="avatar">
+                                        <img class="media-object img-raised" alt="64x64" src="/assets/img/james.jpg">
+                                    </div>
+                                </a>
+                                <div class="media-body">
+                                    <h5 class="media-heading text-white">{{\App\User::find($comment->user_id)->name}}
+                                    </h5>
+                                    <p class="text-white font-weight-bold">{{$comment->body}}</p>
+                                </div>
+                            </div>
+                                <div class="col-md-8 ml-auto mr-auto">
+                                    <hr style="background-color: white">
+                                </div>
+                        </div>
+                    </div>
+                    @empty
+                    <div class="row ">
+                        <div class="col-md-12 mr-auto">
+                            <h6 class="text-white">No comments yet, be the first!</h6>
+                        </div>
+                    </div>
+                    @endforelse
+                @endauth
+
+
             </div>
         </div>
     </div>

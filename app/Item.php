@@ -135,7 +135,7 @@ class Item extends Model
 
     public function comments()
     {
-        return $this->hasMany('App\Comments', 'on_post');
+        return $this->hasMany(Comment::class);
     }
 
 }

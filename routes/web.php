@@ -38,8 +38,6 @@ Route::group([
 
     Route::get('/', 'AdminController@index')->name('dashboard');
 
-    //Route::resource('posts', 'PostsController', ['except' => ['show', 'create'], 'as' => 'admin']);
-
     Route::resource('users', 'UsersController', ['as' => 'admin']);
     Route::get('/invite', 'UsersController@invite')->name('admin.users.invite');
     Route::post('/invite', 'UsersController@process_invites')->name('process_invite');
@@ -58,6 +56,8 @@ Route::POST('/registration', 'Auth\RegisterController@register')->name('accept')
 Route::get('/blog', 'PostController@index')->name('posts.index');
 Route::get('/blog/{slug}', 'PostController@show');
 
+Route::put('comments', 'CommentController@store')->name('comments.create');
+Route::delete('comments/{comment}', 'CommentController@destroy')->name('comments.delete');
 
 
 
