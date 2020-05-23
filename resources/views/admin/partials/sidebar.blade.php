@@ -44,7 +44,7 @@
                 </a>
             </li>
             <li>
-                <a href="../examples/widgets.html">
+                <a href="/admin/comment">
                     <i class="now-ui-icons text_align-center"></i>
                     <p>Comments</p>
                 </a>

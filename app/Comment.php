@@ -10,6 +10,6 @@ class Comment extends Model
 
     public function author()
     {
-        return $this->belongsTo('App\User', 'from_user');
+        return $this->belongsTo('App\User');
     }
 }

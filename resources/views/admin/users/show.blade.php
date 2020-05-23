@@ -21,11 +21,11 @@
         <div class="col-md-4">
             <div class="card card-user">
                 <div class="image">
-                    <img src="https://seriepolis.com/wp-content/uploads/2020/02/mythic-quest-ravens-banquet.jpg" alt="...">
+                    <img src="/storage/background-profile.jpg" alt="...">
                 </div>
                 <div class="card-body">
                     <div class="author">
-                            <img class="avatar border-gray" src="/dashboard-pro/assets/img/user_image.jpg" alt="...">
+                            <img class="avatar border-gray" src="/storage/avatars/{{$user->avatar}}" alt="...">
                             <h5 class="title text-info">{{$user->name}}</h5>
 
                     </div>

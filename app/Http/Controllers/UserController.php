@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Invite;
 use App\Item;
 use App\TMDB;
@@ -21,8 +22,10 @@ class UserController extends Controller
         $user=User::find(Auth::id());
         $totalusers=User::count();
         $phrase=Item::PhraseRand();
+        $comments=Comment::where('user_id', Auth::id())->get();
         $userItemsWatched = Item::ItemsPerUser(Auth::id());
 
+        $user->comments = $comments;
         $user->totalusers = $totalusers;
         $user->phrase = $phrase;
         $user->userItemsWatched = $userItemsWatched;
@@ -36,5 +39,25 @@ class UserController extends Controller
     {
         $invite = Invite::where('token', $token)->first();
         return view('auth.register',['invite' => $invite]);
+    }
+
+    public function update_avatar(Request $request){
+
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $user = Auth::user();
+
+        $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+
+        $request->avatar->storeAs('avatars',$avatarName);
+
+        $user->avatar = $avatarName;
+        $user->save();
+
+        return back()
+            ->with('success','You have successfully upload image.');
+
     }
 }

@@ -27,7 +27,9 @@ Route::post('/watchlist', 'ItemController@store')->middleware('auth')->name('ite
 Route::resource('episodes','EpisodeController')->middleware('auth');
 Route::get('/search', 'ItemController@search')->middleware('auth');
 Route::get('/searched', 'ItemController@searchItem')->middleware('auth')->name('item.search');
+
 Route::get('/profile', 'UserController@show')->middleware('auth')->name('profile.show');
+Route::post('/profile', 'UserController@update_avatar');
 
 
 Route::group([
@@ -48,6 +50,8 @@ Route::group([
     Route::get('edit/{slug}', 'PostController@edit')->name('admin.posts.edit');
     Route::put('/post/update', 'PostController@update')->name('admin.posts.update');
     Route::delete('/post/delete/{post}', 'PostController@destroy')->name('admin.posts.destroy');
+    Route::resource('comment', 'CommentController', ['as' => 'admin']);
+
 });
 
 Route::get('/registration/{token}', 'UserController@registration_view')->name('registration');
