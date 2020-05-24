@@ -312,7 +312,7 @@
                 <div class="row">
                     @forelse($user->comments as $comment)
                         <div class="col-md-12">
-                            <p class="text-white font-italic">{{$comment->body}}</p>
+                            <p class="text-white font-italic">{!!$comment->body!!}</p>
                             <hr style="background-color: white">
 
                         </div>

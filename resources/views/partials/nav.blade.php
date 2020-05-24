@@ -24,11 +24,13 @@
                             Profile
                         </a>
                     </li>
+                    @if(\App\User::isAdmin())
                     <li class="nav-item">
                         <a class="nav-link" href="/admin">
                             Admin
                         </a>
                     </li>
+                        @endif
                     <li class="nav-item">
                         <a class="nav-link" href="/search">
                             Search

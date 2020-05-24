@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -50,6 +51,15 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany('App\Comments', 'from_user');
+    }
+
+    public static function isAdmin()
+    {
+        if (Auth::user()->admin == 1)
+        {
+           return true;
+        }
+        return false;
     }
 
 

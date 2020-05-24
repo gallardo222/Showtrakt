@@ -65,5 +65,25 @@
         ::-webkit-scrollbar-corner {
             background: transparent;
         }
+        summary::-webkit-details-marker {
+            display: none
+        }
+
+        details > summary {
+            padding: 6px;
+            width: 100%;
+            background-color: white;
+            border: none;
+            box-shadow: 1px 1px 2px #bbbbbb;
+            cursor: pointer;
+        }
+
+        details > p {
+            background-color: black;
+            color:white;
+            padding: 4px;
+            margin: 0;
+            box-shadow: 1px 1px 2px #bbbbbb;
+        }
     </style>
 </head>

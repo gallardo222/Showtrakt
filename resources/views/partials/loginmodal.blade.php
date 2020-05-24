@@ -1,7 +1,7 @@
-<div class="modal fade modal-primary" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade modal-primary"  id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-login">
-        <div class="modal-content">
-            <div class="card card-login card-plain" data-background-color>
+        <div class="modal-content" >
+            <div class="card card-login card-plain">
                 <div class="modal-header justify-content-center">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         <i class="now-ui-icons ui-1_simple-remove"></i>
