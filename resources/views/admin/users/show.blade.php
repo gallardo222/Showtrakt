@@ -63,46 +63,20 @@
                     <h5 class="title text-center">Last Comments</h5>
                 </div>
                 <div class="card-body">
-
+                    @forelse($comments as $comment)
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="description text-center">Jojo Rabbit sucks</p>
+                            <p class="description text-center">{!! $comment->body !!}</p>
                             <hr>
                         </div>
                     </div>
-
-                    <div class="row">
+                        @empty
                         <div class="col-md-12">
-                            <p class="description text-center">Ash FTW</p>
-                            <hr>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p class="description text-center">It could be better</p>
+                            <p class="description text-center">
+                                This user hasn't yet made any comments</p>
                             <hr>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p class="description text-center">That plot twist</p>
-                            <hr>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p class="description text-center">Such great finale</p>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p class="description text-center">Such disappointment</p>
-                        </div>
-                    </div>
-
+                    @endforelse
                 </div>
             </div>
         </div>

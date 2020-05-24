@@ -46,7 +46,7 @@
                                     <div class="icon icon-danger">
                                         <i class="now-ui-icons ui-2_chat-round"></i>
                                     </div>
-                                    <h3 class="info-title">353</h3>
+                                    <h3 class="info-title">{{$totalcomments}}</h3>
                                     <h6 class="stats-title">Total Comments</h6>
                                 </div>
                             </div>
@@ -359,7 +359,12 @@
                 </div>
                 <div class="card-body">
                     <hr>
-                    <h5>Menuda basura es Jojo Rabitt</h5>
+                    @forelse($comments as $comment)
+                    <p>{{$comment->body}}</p>
+                        <hr>
+                    @empty
+                        <p>No comments yet!</p>
+                    @endforelse
                 </div>
 
             </div>

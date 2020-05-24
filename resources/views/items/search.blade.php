@@ -3,17 +3,18 @@
 @section('content')
 
     <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-sm-6 col-lg-10">
+        <div class="col-sm-6 col-lg-8 ml-auto mr-auto">
             <form action="{{route('item.search')}}" method="GET" style="display: inline;">
                 @csrf
                 <div class="input-group" style="margin-top: -2%">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+                        <span class="input-group-text"></span>
                     </div>
                     <input type="text" id="search" name="search" class="form-control text-center"
                            placeholder="Search...." style="background-color: white">
+
                 </div>
+
             </form>
         </div>
     </div>

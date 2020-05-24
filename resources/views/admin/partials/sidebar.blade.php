@@ -3,10 +3,10 @@
       Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
   -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="/admin" class="simple-text logo-mini">
             ST
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="/admin" class="simple-text logo-normal">
             ShowTrack
         </a>
         <div class="navbar-minimize">

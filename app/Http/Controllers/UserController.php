@@ -22,7 +22,7 @@ class UserController extends Controller
         $user=User::find(Auth::id());
         $totalusers=User::count();
         $phrase=Item::PhraseRand();
-        $comments=Comment::where('user_id', Auth::id())->get();
+        $comments=Comment::where('user_id', Auth::id())->orderByDesc('created_at')->take(10)->get();
         $userItemsWatched = Item::ItemsPerUser(Auth::id());
 
         $user->comments = $comments;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Comment;
 use App\Invite;
 use App\Notifications\InviteNotification;
 use App\User;
@@ -71,10 +72,12 @@ class UsersController extends Controller
         $phrase=Item::PhraseRand();
 
         $userItemsWatched = Item::ItemsPerUser($user->id);
+        $comments=Comment::where('user_id', $user->id)->orderByDesc('created_at')->take(10)->get();
+
 
         $items=DB::table('items')->where('user_id', $user->id)->get();
 
-        return view('admin.users.show', compact('user','phrase', 'items', 'userItemsWatched'));
+        return view('admin.users.show', compact('user','phrase', 'items', 'userItemsWatched', 'comments'));
     }
 
     public function edit(User $user)
