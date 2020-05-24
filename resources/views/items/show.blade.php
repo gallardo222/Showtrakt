@@ -191,6 +191,9 @@
                         </a>
                         <div class="media-body">
                             <input type="hidden" name="tmdb_id" id="tmdb_id" value="{{$item['tmdb_id']}}" />
+                            <input type="hidden" name="item_title" id="item_title" value="{{$item['title']}}" />
+                            <input type="hidden" name="media_type" id="media_type" value="{{$item['media_type']}}" />
+
 
                             <textarea class="form-control" name="body" placeholder="What do you think about?" rows="6"></textarea>
                             <div class="media-footer">

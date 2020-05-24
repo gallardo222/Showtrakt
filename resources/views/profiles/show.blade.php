@@ -306,9 +306,10 @@
                 </div>
                 <br><br><br>
                 <div class="row">
-                    <h6 class="text-white">Latest Comments</h6>
+                    <a class="btn btn-link" href="/comments/show">
+                        <h6 class="text-white">Latest Comments</h6>
+                    </a>
                 </div>
-                <br>
                 <div class="row">
                     @forelse($user->comments as $comment)
                         <div class="col-md-12">

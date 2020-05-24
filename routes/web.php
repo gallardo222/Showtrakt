@@ -62,6 +62,8 @@ Route::get('/blog/{slug}', 'PostController@show');
 
 Route::put('comments', 'CommentController@store')->name('comments.create');
 Route::delete('comments/{comment}', 'CommentController@destroy')->name('comments.delete');
+Route::get('comments/show', 'CommentController@index')->name('comments.show');
+
 
 
 

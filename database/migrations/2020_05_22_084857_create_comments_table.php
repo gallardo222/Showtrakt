@@ -18,6 +18,8 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('item_id');
+            $table->string('item_title');
+            $table->string('media_type');
             $table->string('body');
             $table->timestamps();
         });
