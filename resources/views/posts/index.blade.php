@@ -6,8 +6,9 @@
     <h2 class="text-white text-center font-weight-bold">Blog</h2>
     <div class="container">
         <hr style="background-color: white">
-        <div class="row">
-            @foreach($posts as $post)
+            @forelse($posts as $post)
+            <div class="row">
+
             <div class="col-md-4">
                 <div class="card card-blog">
                     <div class="card-image">
@@ -26,8 +27,28 @@
                     </div>
                 </div>
             </div>
-            @endforeach
-        </div>
+            </div>
+
+        @empty
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5 ml-auto mr-auto">
+                        <br><br>
+                        <h6 class="text-white">We are sorry, but right now this blog have no Post</h6>
+                    </div>
+                </div>
+
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-7">
+                    <img src="assets/img/showtrakt-logo-bg.png" alt="Rounded Image" class="rounded"
+                         style="opacity: 20%;">
+                    <br><br><br>
+                </div>
+            </div>
+
+
+            @endforelse
     </div>
 
 @endsection

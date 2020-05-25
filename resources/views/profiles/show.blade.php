@@ -22,8 +22,9 @@
         .card {
             flex: 0 0 auto;
         }
-
         }
+
+
     </style>
 
     <div class="wrapper">
@@ -37,9 +38,12 @@
             <div class="container ">
                 <div class="row">
                     <div class="col-md-2" >
-                        <div class="carousel slide">
-                            <img  data-toggle="modal" data-target="#avatarModal" class="d-block img-raised" src="/storage/avatars/{{$user->avatar}}"
-                                 alt="First slide">
+                        <div class="carousel slide" >
+                            <a class="btn btn-link">
+                                <img id="profile-image" data-toggle="modal" data-target="#avatarModal" class="d-block img-raised" src="/storage/avatars/{{$user->avatar}}"
+                                     alt="First slide">
+                            </a>
+
                         </div>
                         <div><p></p></div>
                     </div>

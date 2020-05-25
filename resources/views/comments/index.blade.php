@@ -3,13 +3,13 @@
 @section('content')
     <br>
     <br>
-    <h2 class="text-white text-center font-weight-bold">Blog</h2>
+    <h2 class="text-white text-center font-weight-bold">Your Comments</h2>
     <div class="container">
         <hr style="background-color: white">
         <div class="row">
-            @foreach($comments as $comment)
+            @forelse($comments as $comment)
             <div class="col-md-12" onclick="myFunction2()">
-                <div class="card card-blog" style="background-color: #3f9ae5">
+                <div class="card card-blog" style="background-color: #3b5998">
                     <div class="card-body">
                         <h6 class="card-title text-center text-white">
                             {{$comment->item_title}}
@@ -24,8 +24,21 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+                @empty
+                <div class="row">
+                    <h6 class="text-white">Sorry but you don't have any comment yet.</h6>
+                </div>
+            @endforelse
         </div>
+        <div class="container">
+            <div class="row" style="background-color: #3b5998;">
+                <div class="col-md-4"></div>
+                <div class="col-md-6 ml-auto mr-auto text-white" style="margin-top: 1.5%" >
+                    {{$comments->links()}}
+                </div>
+            </div>
+        </div>
+
     </div>
 
 @endsection

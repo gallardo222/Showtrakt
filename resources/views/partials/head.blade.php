@@ -12,6 +12,7 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- CSS Files -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/circle.css" rel="stylesheet" />
     <link href="/assets/css/now-ui-kit.css?v=1.2.2" rel="stylesheet" />
     <!-- Google Tag Manager -->
     {{--<script>--}}

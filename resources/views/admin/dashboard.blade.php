@@ -63,304 +63,97 @@
                     <h4 class="card-title"> Most Active Users</h4>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-shopping">
-                            <thead class="">
-                            <tr><th class="text-center">
-                                </th>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Custom Title
-                                </th>
-                                <th>
-                                    Total Movies
-                                </th>
-                                <th class="text-right">
-                                    Total TV Shows
-                                </th>
-                                <th class="text-right">
-                                    Total Comments
-                                </th>
-                            </tr></thead>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <div class="img-container">
-                                        <img src="../assets/img/saint-laurent.jpg" alt="...">
-                                    </div>
-                                </td>
-                                <td class="td-name">
-                                    <a href="#jacket">Suede Biker Jacket</a>
-                                    <br>
-                                    <small>by Saint Laurent</small>
-                                </td>
-                                <td>
-                                    Black
-                                </td>
-                                <td>
-                                    M
-                                </td>
-                                <td class="td-number">
-                                    <small>€</small>3,390
-                                </td>
-                                <td class="td-number">
-                                    1
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <div class="row">
+                        @forelse($topusers as $topuser)
+                            <div class="col-md-2 ml-auto mr-auto">
+                                <hr>
+                                <h6 class="text-center">{{\App\User::find($topuser->user_id)->name}}</h6>
+                                <hr>
+                                <div class="img-raised">
+                                    <a href="/admin/users/{{$topuser->user_id}}">
+                                        <img src="/storage/avatars/{{\App\User::find($topuser->user_id)->avatar}}" alt="poster">
+                                    </a>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-md-3">
+                                <p>No Users yet!</p>
+                            </div>
+                        @endforelse
                     </div>
+                    <br>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-6 col-md-6">
-            <div class="card card-chart">
+            <div class="card">
                 <div class="card-header">
-                    <h5 class="card-category">Most Watched Movies</h5>
-                    <h2 class="card-title">34,252</h2>
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown" aria-expanded="false">
-                            <i class="now-ui-icons loader_gear"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-127px, 38px, 0px);">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                        </div>
-                    </div>
+                    <h4 class="card-title text-center">
+                        Top Movies
+                    </h4>
+                    <hr>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/US.png">
-                                    </div>
-                                </td>
-                                <td>USA</td>
-                                <td class="text-right">
-                                    2.920
-                                </td>
-                                <td class="text-right">
-                                    53.23%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/DE.png">
-                                    </div>
-                                </td>
-                                <td>Germany</td>
-                                <td class="text-right">
-                                    1.300
-                                </td>
-                                <td class="text-right">
-                                    20.43%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/AU.png">
-                                    </div>
-                                </td>
-                                <td>Australia</td>
-                                <td class="text-right">
-                                    760
-                                </td>
-                                <td class="text-right">
-                                    10.35%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/GB.png">
-                                    </div>
-                                </td>
-                                <td>United Kingdom</td>
-                                <td class="text-right">
-                                    690
-                                </td>
-                                <td class="text-right">
-                                    7.87%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/RO.png">
-                                    </div>
-                                </td>
-                                <td>Romania</td>
-                                <td class="text-right">
-                                    600
-                                </td>
-                                <td class="text-right">
-                                    5.94%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/BR.png">
-                                    </div>
-                                </td>
-                                <td>Brasil</td>
-                                <td class="text-right">
-                                    550
-                                </td>
-                                <td class="text-right">
-                                    4.34%
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                    <div class="row">
+                        @forelse($topmovies as $topmovie)
+                            <div class="col-md-3">
+                                <div class="card-image">
+                                    <a target="_blank" href="/item/{{$topmovie->tmdb_id}}/movie}}">
+                                        <img src="https://image.tmdb.org/t/p/w500{{$topmovie->poster}}" alt="poster">
+                                    </a>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-md-3">
+                                <p>No Movies yet!</p>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
-            <div class="card card-chart">
+            <div class="card">
                 <div class="card-header">
-                    <h5 class="card-category">Most Watched TV Shows</h5>
-                    <h2 class="card-title">34,252</h2>
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown" aria-expanded="false">
-                            <i class="now-ui-icons loader_gear"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-127px, 38px, 0px);">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                        </div>
-                    </div>
+                    <h4 class="card-title text-center">
+                        Top TV Shows
+                    </h4>
+                    <hr>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/US.png">
-                                    </div>
-                                </td>
-                                <td>USA</td>
-                                <td class="text-right">
-                                    2.920
-                                </td>
-                                <td class="text-right">
-                                    53.23%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/DE.png">
-                                    </div>
-                                </td>
-                                <td>Germany</td>
-                                <td class="text-right">
-                                    1.300
-                                </td>
-                                <td class="text-right">
-                                    20.43%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/AU.png">
-                                    </div>
-                                </td>
-                                <td>Australia</td>
-                                <td class="text-right">
-                                    760
-                                </td>
-                                <td class="text-right">
-                                    10.35%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/GB.png">
-                                    </div>
-                                </td>
-                                <td>United Kingdom</td>
-                                <td class="text-right">
-                                    690
-                                </td>
-                                <td class="text-right">
-                                    7.87%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/RO.png">
-                                    </div>
-                                </td>
-                                <td>Romania</td>
-                                <td class="text-right">
-                                    600
-                                </td>
-                                <td class="text-right">
-                                    5.94%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="flag">
-                                        <img src="../assets/img/BR.png">
-                                    </div>
-                                </td>
-                                <td>Brasil</td>
-                                <td class="text-right">
-                                    550
-                                </td>
-                                <td class="text-right">
-                                    4.34%
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                    <div class="row">
+                        @forelse($toptvshows as $toptvshow)
+                            <div class="col-md-3">
+                                <div class="card-image">
+                                    <a target="_blank" href="/item/{{$toptvshow->tmdb_id}}/tv}}">
+                                        <img src="https://image.tmdb.org/t/p/w500{{$toptvshow->poster}}" alt="poster">
+                                    </a>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-md-6">
+                                <p>No TV Shows yet!</p>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
         </div>
+
 
     </div>
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title"> Latest Comments</h4>
+                    <h4 class="card-title text-center"> Latest Comments</h4>
                 </div>
                 <div class="card-body">
                     <hr>
                     @forelse($comments as $comment)
-                    <p>{{$comment->body}}</p>
+                        <p>{{$comment->body}}</p>
                         <hr>
                     @empty
                         <p>No comments yet!</p>
