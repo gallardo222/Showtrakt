@@ -24,8 +24,11 @@
                     <h5 class="title text-center">Comment</h5>
                 </div>
                 <div class="card-body">
+                    @include('partials.messages')
+
                     <div class="row">
                         <div class="col-md-12">
+
                             <form action="{{route('admin.comment.update', $comment)}}" method="post">
                                 @method('PUT')
                                 @csrf

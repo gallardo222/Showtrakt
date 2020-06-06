@@ -10,16 +10,9 @@
                 <h6>Invite a new User</h6>
             </div>
             <div class="card-body">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                    <form action="{{route('process_invite')}}" method="post">
+                @include('partials.messages')
+
+                <form action="{{route('process_invite')}}" method="post">
                         @csrf
 
                         <div class="form-group">

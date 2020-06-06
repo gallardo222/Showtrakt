@@ -31,7 +31,7 @@ class CommentController extends Controller
 
     public function update(Request $request, Comment $comment)
     {
-
+        $this->validate($request, ['body' => 'required']);
 
         $comment->body = $request->input('body');
         $comment->save();

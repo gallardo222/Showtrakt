@@ -10,15 +10,8 @@
                     <h6>Edit Post</h6>
                 </div>
                 <div class="card-body">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    @include('partials.messages')
+
                     <form action="{{route('admin.posts.update')}}" method="post">
                         @method('PUT')
                         @csrf

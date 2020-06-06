@@ -180,7 +180,7 @@
                     <div class="col-md-12 mr-auto">
                         <h2 class="text-white font-weight-bold" data-toggle="modal" data-target="#helpModal">Comments <small>(Click me)</small></h2>
                     </div>
-
+                    @include('partials.messages')
                     <form action="{{route('comments.create')}}" method="post">
                         @csrf @method('put')
 
