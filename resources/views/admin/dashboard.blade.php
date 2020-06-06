@@ -77,7 +77,7 @@
                             </div>
                         @empty
                             <div class="col-md-3">
-                                <p>No Users yet!</p>
+                                <p class="text-center">No Users yet!</p>
                             </div>
                         @endforelse
                     </div>
@@ -100,7 +100,7 @@
                         @forelse($topmovies as $topmovie)
                             <div class="col-md-3">
                                 <div class="card-image">
-                                    <a target="_blank" href="/item/{{$topmovie->tmdb_id}}/movie}}">
+                                    <a target="_blank" href="/item/{{$topmovie->tmdb_id}}/movie">
                                         <img src="https://image.tmdb.org/t/p/w500{{$topmovie->poster}}" alt="poster">
                                     </a>
                                 </div>
@@ -127,14 +127,14 @@
                         @forelse($toptvshows as $toptvshow)
                             <div class="col-md-3">
                                 <div class="card-image">
-                                    <a target="_blank" href="/item/{{$toptvshow->tmdb_id}}/tv}}">
+                                    <a target="_blank" href="/item/{{$toptvshow->tmdb_id}}/tv">
                                         <img src="https://image.tmdb.org/t/p/w500{{$toptvshow->poster}}" alt="poster">
                                     </a>
                                 </div>
                             </div>
                         @empty
-                            <div class="col-md-6">
-                                <p>No TV Shows yet!</p>
+                            <div class="col-md-12">
+                                <p class="text-center">No TV Shows yet!</p>
                             </div>
                         @endforelse
                     </div>

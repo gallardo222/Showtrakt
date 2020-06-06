@@ -24,12 +24,22 @@ class UserController extends Controller
         $phrase=Item::PhraseRand();
         $comments=Comment::where('user_id', Auth::id())->orderByDesc('created_at')->take(10)->get();
         $userItemsWatched = Item::ItemsPerUser(Auth::id());
+        $topusers= User::topUsers();
+        $topusersMovie= User::topUsersMovies();
+        $topusersTv= User::topUsersTv();
 
         $user->comments = $comments;
         $user->totalusers = $totalusers;
         $user->phrase = $phrase;
         $user->userItemsWatched = $userItemsWatched;
+        $user->topusers = $topusers;
+        $user->topusersMovie = $topusersMovie;
+        $user->topusersTv = $topusersTv;
+
         //dd($user);
+
+
+
         $items=DB::table('items')->where('user_id', $user->id)->get();
 
         return view('profiles.show')->with('user', $user)->with('items',$items);

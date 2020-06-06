@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Episode;
+use App\Item;
+use App\TMDB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+
 class EpisodeController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, TMDB $tmdb)
     {
 
 
@@ -17,6 +20,8 @@ class EpisodeController extends Controller
             'tmdb_id' => 'required',
             'episode_tmdb_id' => 'required',
         ]);
+
+        //dd($request->all());
 
         $request->request->add(['user_id' => Auth::id()]);
 
@@ -39,6 +44,22 @@ class EpisodeController extends Controller
 
             $episode->save();
 
+            if (! Item::ItemExist($request->user()->id, $request->tmdb_id))
+            {
+                $item=new Item($tmdb);
+
+                $item->title = $request->item['title'];
+                $item->tmdb_id = $request->item['tmdb_id'];
+                $item->user_id = $request->user_id;
+                $item->poster = $request->item['poster'];
+                $item->media_type = $request->item['media_type'];
+                $item->watched = true;
+
+                $item->save();
+
+
+            }
+
             return redirect()->back();
 
         }
@@ -48,7 +69,7 @@ class EpisodeController extends Controller
 
     public function destroy($data)
     {
-        DB::table('episodes')->where('episode_tmdb_id', $data->episode_tmdb_id)->where('user_id', $data->user_id)->delete();
+        DB::table('episodes')->where('episode_tmdb_id', $data->episode_tmdb_id)->where('user_id', Auth::id())->delete();
 
     }
 }

@@ -69,6 +69,8 @@ class RegisterController extends Controller
         $invite = Invite::where('email', $data['email'])->first();
         $invite->delete();
 
+        createAccount($data['name'], $data['custom_title']);
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

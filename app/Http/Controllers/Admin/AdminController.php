@@ -21,7 +21,7 @@ class AdminController extends Controller
         $topmovies= DB::select("SELECT tmdb_id, poster FROM items WHERE media_type='movie' GROUP BY tmdb_id, poster ORDER BY count(*) DESC LIMIT 9");
         $toptvshows= DB::select("SELECT tmdb_id, poster FROM items WHERE media_type='tv' GROUP BY tmdb_id, poster ORDER BY count(*) DESC LIMIT 9");
         $topusers= DB::select("SELECT user_id FROM items GROUP BY user_id ORDER BY count(*) DESC LIMIT 9");
-        //dd($topusers);
+
         return view('admin.dashboard')->with('item', $totalitems)
                 ->with('user', $totalusers)
                 ->with('comments', $comments)

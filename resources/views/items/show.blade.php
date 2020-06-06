@@ -136,7 +136,7 @@
 
                                                                         @endif
                                                                     <div class="card-footer">
-                                                                        <form action="{{route('episodes.store', ['tmdb_id'=>$episode->show_id, 'episode_tmdb_id'=>$episode->id])}}"
+                                                                        <form action="{{route('episodes.store', ['tmdb_id'=>$episode->show_id, 'episode_tmdb_id'=>$episode->id, 'item'=>$item])}}"
                                                                               method="post" style="display: inline;">
                                                                             @csrf
 

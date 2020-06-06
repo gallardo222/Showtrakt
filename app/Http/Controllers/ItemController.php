@@ -22,7 +22,7 @@ class ItemController extends Controller
         {
             $episodes=$item->ItemEpisode($tmdbId, $mediaType);
             $item=$item->item($tmdbId,$mediaType);
-            //dd($item);
+            //dd($episodes);
             $comments=DB::table('comments')->where('item_id', $tmdbId)->get();
 
             $watched=Item::ItemWatched(Auth::id(), $tmdbId, true);
@@ -64,7 +64,6 @@ class ItemController extends Controller
 
     public function store(Request $request, TMDB $tmdb)
     {
-
         $nameRoute = $request->route()->getName();
 
 	    $request->validate([
@@ -84,44 +83,18 @@ class ItemController extends Controller
 
             if ($nameRoute == 'items.store') {
 
-                if ($find) {
-                    if ($find->watched) {
+                    $this->handleWatch($request, $find, $item);
 
-                        $this->destroy($find);
+                return redirect()->back();
 
-                        return redirect()->back();
-
-                    } else {
-
-                        $item->watched = true;
-
-                        DB::table('items')->where('tmdb_id', $request->tmdb_id)->where('user_id', $request->user_id)->update(['watched' => $item->watched]);
-
-                        return redirect()->back();
-
-                    }
-                }
             }
 
             if ($nameRoute == 'item.watchlist') {
 
-                if ($find) {
-                    if ($find->watchlist) {
+                    $this->handleWatchlist($request, $find, $item);
 
-                        $this->destroy($find);
+                return redirect()->back();
 
-                        return redirect()->back();
-
-                    } else {
-
-                        $item->watchlist = true;
-
-                        DB::table('items')->where('tmdb_id', $request->tmdb_id)->where('user_id', $request->user_id)->update(['watchlist' => $item->watchlist]);
-
-                        return redirect()->back();
-
-                    }
-                }
             }
 
         }else{
@@ -148,14 +121,43 @@ class ItemController extends Controller
 
         }
 
+    }
+
+    public function handleWatch($data1, $data2, $data3)
+    {
+        if ($data2->watched) {
+
+            $this->destroy($data2);
 
 
+        } else {
 
+            $data3->watched = true;
+
+            DB::table('items')->where('tmdb_id', $data1->tmdb_id)->where('user_id', $data1->user_id)->update(['watched' => $data3->watched]);
+
+        }
+    }
+
+    public function handleWatchlist($data1, $data2, $data3)
+    {
+        if ($data2->watchlist) {
+
+            DB::table('items')->where('tmdb_id', $data1->tmdb_id)->where('user_id', $data1->user_id)->update(['watchlist' => false]);
+
+        } else {
+
+            $data3->watchlist = true;
+
+            DB::table('items')->where('tmdb_id', $data1->tmdb_id)->where('user_id', $data1->user_id)->update(['watchlist' => $data3->watchlist]);
+
+        }
     }
 
     public function destroy($data)
     {
         DB::table('items')->where('tmdb_id', $data->tmdb_id)->where('user_id', $data->user_id)->delete();
+        DB::table('episodes')->where('tmdb_id', $data->tmdb_id)->where('user_id', $data->user_id)->delete();
 
     }
 }

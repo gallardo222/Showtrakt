@@ -158,7 +158,7 @@
                                     <div class="col-md-12">
                                         <h4 class="category-social">
                                             <i class="now-ui-icons media-1_button-play"></i> Movies: <strong
-                                                    style="display: inline;"><i>1 of {{$user->totalusers}}</i>
+                                                    style="display: inline;"><i>{{isset($user->topusersMovie) ? $user->topusersMovie + 1 : $user->totalusers}} of {{$user->totalusers}}</i>
                                                 Users</strong>
                                         </h4>
                                     </div>
@@ -167,7 +167,7 @@
                                     <div class="col-md-12">
                                         <h4 class="category-social">
                                             <i class="now-ui-icons tech_tv"></i> TV Shows: <strong
-                                                    style="display: inline;"><i>1 of {{$user->totalusers}}</i>
+                                                    style="display: inline;"><i>{{isset($user->topusersTv) ? $user->topusersTv + 1 : $user->totalusers}} of {{$user->totalusers}}</i>
                                                 Users</strong>
                                         </h4>
                                     </div>
@@ -177,7 +177,7 @@
                                     <div class="col-md-12">
                                         <h4 class="category-social">
                                             <i class="now-ui-icons objects_spaceship"></i> General: <strong
-                                                    style="display: inline;"><i>1 of {{$user->totalusers}}</i>
+                                                    style="display: inline;"><i>{{isset($user->topusers) ? $user->topusers + 1 : $user->totalusers}} of {{$user->totalusers}}</i>
                                                 Users</strong>
                                         </h4>
                                     </div>
