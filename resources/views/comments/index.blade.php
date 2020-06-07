@@ -6,6 +6,7 @@
     <h2 class="text-white text-center font-weight-bold">Your Comments</h2>
     <div class="container">
         <hr style="background-color: white">
+
         <div class="row">
             @forelse($comments as $comment)
             <div class="col-md-12" onclick="myFunction2()">
@@ -24,10 +25,14 @@
                     </div>
                 </div>
             </div>
-                @empty
-                <div class="row">
-                    <h6 class="text-white">Sorry but you don't have any comment yet.</h6>
+            @empty
+                    <div class="col-md-12">
+                        <br><br><br>
+                        <h6 class="text-white text-center">Sorry but you don't have any comment yet.</h6>
+                        <br><br><br>
+                    </div>
                 </div>
+
             @endforelse
         </div>
         <div class="container">
@@ -39,11 +44,19 @@
             </div>
         </div>
 
+
+
+
     </div>
 
 @endsection
-<script>
-    function myFunction2() {
-        location.href = "/item/{{$comment->item_id}}/{{$comment->media_type}}";
-    }
-</script>
+@if(! empty($comments) && isset($comment))
+
+@push('scripts')
+    <script>
+        function myFunction2() {
+            location.href = "/item/{{$comment->item_id}}/{{$comment->media_type}}";
+        }
+    </script>
+@endpush
+@endif

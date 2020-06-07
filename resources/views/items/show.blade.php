@@ -57,9 +57,9 @@
                         <hr style="background-color: white">
                         <div class="ml-auto mr-auto">
 
-                            <button class="btn btn-linkedin ml-5">
+                            <div class="btn btn-linkedin ml-5">
                                 <i class="now-ui-icons media-2_sound-wave"></i> Tmdb Rating: {{$item['tmdb_rating']}}
-                            </button>
+                            </div>
 
                             <button class="btn btn-linkedin ml-5" onclick="myFunction()">
                                 <i class="now-ui-icons users_single-02"></i> Full Cast
