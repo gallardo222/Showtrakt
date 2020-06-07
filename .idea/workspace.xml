@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="738ca116-bbbb-469b-9a24-16327b623097" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/comments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/comments/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/items/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/items/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/head.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,12 +47,12 @@
           <entry key="gitignore" value="6" />
           <entry key="json" value="1" />
           <entry key="md" value="392" />
-          <entry key="php" value="28307" />
+          <entry key="php" value="28572" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="15824" />
+          <entry key="Blade" value="16089" />
           <entry key="JSON" value="1" />
           <entry key="Markdown" value="392" />
           <entry key="PHP" value="12483" />
@@ -70,13 +69,13 @@
           <entry key="js" value="1" />
           <entry key="json" value="4" />
           <entry key="md" value="7" />
-          <entry key="php" value="555" />
+          <entry key="php" value="557" />
           <entry key="png" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="261" />
+          <entry key="Blade" value="263" />
           <entry key="CSS" value="1" />
           <entry key="Image" value="2" />
           <entry key="JSON" value="4" />
@@ -91,56 +90,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/items/search.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
-              <folding>
-                <element signature="e#192#216#0#HTML" expanded="true" />
-                <element signature="e#281#304#0#HTML" expanded="true" />
-                <element signature="e#600#631#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/items/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+            <state relative-caret-position="540">
+              <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/comments/index.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/head.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
-              <folding>
-                <element signature="n#style#0;n#hr#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/layout.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="84" column="17" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/layout.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="110" column="17" lean-forward="true" selection-start-line="110" selection-end-line="111" />
+            <state relative-caret-position="699">
+              <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -188,7 +150,6 @@
         <option value="$PROJECT_DIR$/resources/views/partials/nav.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Comment.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/head.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/posts/index.blade.php" />
         <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Pagination/resources/views/simple-bootstrap-4.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" />
@@ -213,9 +174,10 @@
         <option value="$PROJECT_DIR$/resources/views/profiles/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/posts/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/items/search.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/items/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/comments/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/items/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/head.blade.php" />
       </list>
     </option>
   </component>
@@ -405,21 +367,6 @@
               <item name="showtrakt" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="showtrakt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="showtrakt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="showtrakt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="showtrakt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="comments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -427,7 +374,21 @@
               <item name="showtrakt" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="items" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="showtrakt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="showtrakt" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="showtrakt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="showtrakt" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="showtrakt" type="b2602c69:ProjectViewProjectNode" />
@@ -511,12 +472,12 @@
       <workItem from="1590415062990" duration="12514000" />
       <workItem from="1591431418573" duration="10283000" />
       <workItem from="1591451067577" duration="43000" />
-      <workItem from="1591518547895" duration="2499000" />
+      <workItem from="1591518547895" duration="4431000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243757000" />
+    <option name="totallyTimeSpent" value="245689000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -580,13 +541,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/posts/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -863,18 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/items/search.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
-          <folding>
-            <element signature="e#192#216#0#HTML" expanded="true" />
-            <element signature="e#281#304#0#HTML" expanded="true" />
-            <element signature="e#600#631#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -889,22 +831,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/items/show.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/comments/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+        <state relative-caret-position="420">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="n#style#0;n#hr#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/comments/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/items/search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+        <state relative-caret-position="435">
+          <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
           <folding>
-            <element signature="n#style#0;n#hr#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#!!top" />
+            <element signature="e#192#216#0#HTML" expanded="true" />
+            <element signature="e#281#304#0#HTML" expanded="true" />
+            <element signature="e#600#631#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/items/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/head.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="699">
+          <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
         </state>
       </provider>
     </entry>

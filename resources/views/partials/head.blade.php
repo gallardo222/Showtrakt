@@ -14,24 +14,7 @@
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/assets/css/circle.css" rel="stylesheet" />
     <link href="/assets/css/now-ui-kit.css?v=1.2.2" rel="stylesheet" />
-    <!-- Google Tag Manager -->
-    {{--<script>--}}
-        {{--(function(w, d, s, l, i) {--}}
-            {{--w[l] = w[l] || [];--}}
-            {{--w[l].push({--}}
-                {{--'gtm.start': new Date().getTime(),--}}
-                {{--event: 'gtm.js'--}}
-            {{--});--}}
-            {{--var f = d.getElementsByTagName(s)[0],--}}
-                {{--j = d.createElement(s),--}}
-                {{--dl = l != 'dataLayer' ? '&l=' + l : '';--}}
-            {{--j.async = true;--}}
-            {{--j.src =--}}
-                {{--'https://www.googletagmanager.com/gtm.js?id=' + i + dl;--}}
-            {{--f.parentNode.insertBefore(j, f);--}}
-        {{--})(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');--}}
-    {{--</script>--}}
-    {{--<!-- End Google Tag Manager -->--}}
+  @stack('styles')
     <style>
         ::-webkit-scrollbar {
             width: 5px;
@@ -85,6 +68,23 @@
             padding: 4px;
             margin: 0;
             box-shadow: 1px 1px 2px #bbbbbb;
+        }
+        *{padding:0;margin:0;}
+
+        .float{
+            position:fixed;
+            width:40px;
+            height:40px;
+            bottom:15px;
+            right:15px;
+            background-color:#3f9ae5;
+            border-radius:20px;
+            text-align:center;
+        }
+
+        .my-float{
+            margin-top: -15px;
+            margin-left: -8px;
         }
     </style>
 </head>

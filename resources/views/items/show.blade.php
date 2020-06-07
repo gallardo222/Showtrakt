@@ -3,6 +3,14 @@
 
 @include('partials.head')
 
+@push('styles')
+    <style>
+
+    </style>
+@endpush
+
+
+
 <d class="product-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript>
@@ -12,7 +20,10 @@
     <!-- End Google Tag Manager (noscript) -->
     @include('partials.nav')
 
-    <div class="wrapper">
+
+
+    <div class="wrapper" id="up" name="up">
+
         <div class="page-header page-header-small">
             <div class="page-header-image" data-parallax="true"
                  style="background-image: url('https://image.tmdb.org/t/p/original{{$item['backdrop']}}'); transform: translate3d(0px, 0px, 0px);">
@@ -20,6 +31,14 @@
         </div>
         <div class="section bg-dark">
             <div class="container ">
+                @if($item['media_type'] == 'tv')
+
+                    <a class='float btn btn-info' href='#up'>
+                        <h5><i class="my-float now-ui-icons arrows-1_minimal-up"></i>
+                        </h5>
+                    </a>
+
+                @endif
                 <div class="row">
                     <div class="col-md-5">
                         <div class="carousel slide">
