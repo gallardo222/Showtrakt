@@ -19,7 +19,7 @@
     <div class="sidebar-wrapper">
         <div class="user">
             <div class="photo">
-                <img src="https://i.pinimg.com/originals/81/63/94/816394a06b8c3a129155a4dd182fe79b.jpg" />
+                <img src="/storage/avatars/{{\Illuminate\Support\Facades\Auth::user()->avatar}}" />
             </div>
             <div class="info">
                 <a data-toggle="collapse" href="" class="collapsed">
