@@ -334,7 +334,7 @@
 
 <footer class="footer" data-background-color="black">
     <div class="container">
-        <a class="footer-brand" href="#pablo">Showtrakt</a>
+        <a class="footer-brand" href="/">Showtrakt</a>
         <p class="pull-center small">This product uses the TMDb API but is not endorsed or certified by TMDb</p>
         <ul class="social-buttons pull-right">
             <li>
