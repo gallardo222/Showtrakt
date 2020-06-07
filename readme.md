@@ -5,6 +5,8 @@
 ## Packages
 
 * [Guzzle](https://github.com/guzzle/guzzle)
+* [Cookie Consent](https://github.com/spatie/laravel-cookie-consent)
+
 
 ## Preview
 
