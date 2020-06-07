@@ -20,7 +20,7 @@ class CreateCommentsTable extends Migration
             $table->integer('item_id');
             $table->string('item_title');
             $table->string('media_type');
-            $table->string('body');
+            $table->string('body', 1000);
             $table->timestamps();
         });
     }
