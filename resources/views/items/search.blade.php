@@ -11,7 +11,7 @@
                         <span class="input-group-text"></span>
                     </div>
                     <input type="text" id="search" name="search" class="form-control text-center"
-                           placeholder="Search...." style="background-color: white">
+                           placeholder="Search...." style="background-color: white" autocomplete="off">
 
                 </div>
 
@@ -31,7 +31,8 @@
                                    href="#collapsemovies" aria-expanded="false"
                                    aria-controls="collapsemovies" class="collapsed">
                                     <div class="text-white"><h2 class="text_bold text-center">
-                                            Movies</h2></div>
+                                            Movies <i class="now-ui-icons arrows-1_minimal-down text-white"></i>
+                                        </h2></div>
                                 </a>
                             </div>
 
@@ -70,7 +71,7 @@
                                    href="#collapseshows" aria-expanded="false"
                                    aria-controls="collapseshows" class="collapsed">
                                     <div class="text-white"><h2 class="text_bold text-center">
-                                            TV Shows</h2></div>
+                                            TV Shows <i class="now-ui-icons arrows-1_minimal-down text-white"></i></h2></div>
                                 </a>
                             </div>
 
