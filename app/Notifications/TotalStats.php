@@ -42,11 +42,23 @@ class TotalStats extends Notification
      */
     public function toTelegram($notifiable)
     {
+        //dd($notifiable->stats);
         return TelegramMessage::create()
             // Optional recipient user id.
             ->to('-1001157340449')
             // Markdown supported.
-            ->content("Welcome to our new User:\n\n*Name:* " . $notifiable->name . "\n*Email:* " . $notifiable->email . "\n*Custom Title:* " . $notifiable->custom_title);
+            ->content("*Showtrakt Stats*\n"
+                . "------------------------"
+            . "\n*Total of Users:* " . $notifiable->stats['totalusers'] .
+            "\n*Total TV Shows:* " . $notifiable->stats['totalitems']['showswatched'] .
+            "\n*Total Movies:* " . $notifiable->stats['totalitems']['moviesswatched'] .
+            "\n*Total Comments:* " . $notifiable->stats['totalcomments'] .
+            "\n*Top Movies:* \n" . "    -" .$notifiable->stats['topmovies'][0]->title .
+            "\n" . "    -" . $notifiable->stats['topmovies'][1]->title .
+            "\n" . "    -" . $notifiable->stats['topmovies'][2]->title .
+            "\n*Top TV Shows:* \n" . "    -" .$notifiable->stats['topshows'][0]->title .
+            "\n" . "    -" . $notifiable->stats['topshows'][1]->title .
+            "\n" . "    -" . $notifiable->stats['topshows'][2]->title);
     }
 
     /**
