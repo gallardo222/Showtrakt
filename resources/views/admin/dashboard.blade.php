@@ -98,15 +98,17 @@
                 <div class="card-body">
                     <div class="row">
                         @forelse($topmovies as $topmovie)
-                            <div class="col-md-3">
-                                <div class="card-image">
-                                    <a target="_blank" href="/item/{{$topmovie->tmdb_id}}/movie">
-                                        <img src="https://image.tmdb.org/t/p/w500{{$topmovie->poster}}" alt="poster">
-                                    </a>
+                            <div class="col-md-4">
+                                <div class="card card-product card-plain">
+                                    <div class="card-image">
+                                        <a target="_blank" href="/item/{{$topmovie->tmdb_id}}/movie">
+                                            <img src="https://image.tmdb.org/t/p/w500{{$topmovie->poster}}" alt="poster">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         @empty
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <p>No Movies yet!</p>
                             </div>
                         @endforelse
@@ -125,11 +127,13 @@
                 <div class="card-body">
                     <div class="row">
                         @forelse($toptvshows as $toptvshow)
-                            <div class="col-md-3">
+                            <div class="col-md-4">
+                                <div class="card card-product card-plain">
                                 <div class="card-image">
                                     <a target="_blank" href="/item/{{$toptvshow->tmdb_id}}/tv">
                                         <img src="https://image.tmdb.org/t/p/w500{{$toptvshow->poster}}" alt="poster">
                                     </a>
+                                </div>
                                 </div>
                             </div>
                         @empty

@@ -9,7 +9,7 @@
 
         <div class="row">
             @forelse($comments as $comment)
-            <div class="col-md-12" onclick="myFunction2()">
+            <div class="col-md-12" onclick="window.location.href ='/item/{{$comment->item_id}}/{{$comment->media_type}}'">
                 <div class="card card-blog" style="background-color: #3b5998">
                     <div class="card-body">
                         <h6 class="card-title text-center text-white">
@@ -50,13 +50,3 @@
     </div>
 
 @endsection
-@if(! empty($comments) && isset($comment))
-
-@push('scripts')
-    <script>
-        function myFunction2() {
-            location.href = "/item/{{$comment->item_id}}/{{$comment->media_type}}";
-        }
-    </script>
-@endpush
-@endif

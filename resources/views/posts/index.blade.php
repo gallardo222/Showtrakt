@@ -6,8 +6,9 @@
     <h2 class="text-white text-center font-weight-bold">Blog</h2>
     <div class="container">
         <hr style="background-color: white">
-            @forelse($posts as $post)
-            <div class="row">
+        <div class="row">
+
+        @forelse($posts->reverse() as $post)
 
             <div class="col-md-4">
                 <div class="card card-blog">
@@ -26,7 +27,6 @@
                         </p>
                     </div>
                 </div>
-            </div>
             </div>
 
         @empty
@@ -49,6 +49,8 @@
 
 
             @endforelse
+        </div>
+
     </div>
 
 @endsection
