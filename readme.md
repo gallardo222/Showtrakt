@@ -6,6 +6,8 @@
 
 * [Guzzle](https://github.com/guzzle/guzzle)
 * [Cookie Consent](https://github.com/spatie/laravel-cookie-consent)
+* [Telegram Notification](https://laravel-notification-channels.com/telegram)
+
 
 
 ## Preview
@@ -13,8 +15,6 @@
 ![alt text](https://i.imgur.com/SHVJt7P.png "Dashboard")
 
 ![alt text](https://i.imgur.com/wCwTs8f.png "Show Movie_View")
-
-![alt text](https://i.imgur.com/xHScJdr.png "Show TVShow_View")
 
 ![alt text](https://i.imgur.com/P532PWx.png "Search Default")
 

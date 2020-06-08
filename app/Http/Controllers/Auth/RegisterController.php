@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Invite;
+use App\Notifications\ShowtraktStats;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -66,17 +68,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $invite = Invite::where('email', $data['email'])->first();
-        $invite->delete();
-
-        createAccount($data['name'], $data['custom_title']);
-
-        return User::create([
+        $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'custom_title' => $data['custom_title'],
 
         ]);
+
+        $invite = Invite::where('email', $data['email'])->first();
+        $invite->delete();
+
+        $user->notify(new ShowtraktStats($user));
+
+        return $user;
     }
 }
